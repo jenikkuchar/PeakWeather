@@ -2,7 +2,7 @@ name: Generate Weather Data
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Spouští se každé 3 hodiny
+    - cron: '*/5 * * * *'  # Spouští se každých 5 minut (nejnižší hodnota povolená GitHub Actions)
   workflow_dispatch:  # Umožňuje manuální spuštění
 
 jobs:
