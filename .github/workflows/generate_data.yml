@@ -31,9 +31,11 @@ jobs:
       
     - name: Commit and push changes
       run: |
-        git config --local user.email "action@github.com"
+        git config --local user.email "jan.kuchar.vsb@gmail.com"
         git config --local user.name "GitHub Action"
         git add data/*.json
         # Pokračuje i když nejsou změny (git commit by jinak selhal)
         git commit -m "Aktualizace dat o počasí $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
