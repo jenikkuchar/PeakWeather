@@ -1,4 +1,4 @@
-# Beskydy Weather
+# PeakWeather
 
 Skript pro shromažďování dat o počasí z vrcholů Beskyd (Lysá hora, Pustevny, Velký Javorník).
 
@@ -6,8 +6,8 @@ Skript pro shromažďování dat o počasí z vrcholů Beskyd (Lysá hora, Puste
 
 1. Naklonujte repozitář:
 ```
-git clone https://github.com/vase-username/beskydy-weather.git
-cd beskydy-weather
+git clone https://github.com/jenikkuchar/PeakWeather.git
+cd PeakWeather
 ```
 
 2. Nainstalujte závislosti:
