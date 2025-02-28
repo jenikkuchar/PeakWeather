@@ -2,6 +2,15 @@
 
 Skript pro shromažďování dat o počasí z vrcholů Beskyd (Lysá hora, Pustevny, Velký Javorník).
 
+![GitHub Actions Status](https://github.com/jenikkuchar/PeakWeather/workflows/Generate%20Weather%20Data/badge.svg)
+
+## Funkce
+
+- Automatické shromažďování dat o počasí z různých zdrojů
+- Zpracování a uložení dat ve formátu JSON
+- Automatické spouštění pomocí GitHub Actions každé 3 hodiny
+- Konfigurovatelné zdroje dat
+
 ## Instalace
 
 1. Naklonujte repozitář:
@@ -30,12 +39,20 @@ Upravte soubor `config.py` podle vašich potřeb:
 
 ## Použití
 
+### Lokální spuštění
+
 Spusťte hlavní skript:
 ```
 python main.py
 ```
 
 Skript stáhne data z nakonfigurovaných zdrojů a uloží je do JSON souboru v adresáři `data/`.
+
+### Automatické spouštění (GitHub Actions)
+
+Repozitář je nakonfigurován s GitHub Actions, které automaticky spouštějí skript každé 3 hodiny a ukládají výsledky do adresáře `data/`. 
+
+Můžete také spustit workflow manuálně přes záložku "Actions" na GitHub.
 
 ## Struktura projektu
 
@@ -47,3 +64,14 @@ Skript stáhne data z nakonfigurovaných zdrojů a uloží je do JSON souboru v 
   - `lysa_hora.py`: Modul pro Lysou horu
   - `pustevny.py`: Modul pro Pustevny
   - `velky_javornik.py`: Modul pro Velký Javorník
+- `.github/workflows/`: Konfigurační soubory pro GitHub Actions
+
+## Přispívání
+
+Příspěvky jsou vítány! Pokud chcete přispět:
+
+1. Forkněte repozitář
+2. Vytvořte větev pro vaši funkci (`git checkout -b feature/amazing-feature`)
+3. Proveďte změny a commitněte je (`git commit -m 'Add some amazing feature'`)
+4. Pushněte do větve (`git push origin feature/amazing-feature`)
+5. Otevřete Pull Request
