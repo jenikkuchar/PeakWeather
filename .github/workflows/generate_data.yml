@@ -2,7 +2,7 @@ name: Generate Weather Data
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # Spouští se každých 10 minut
+    - cron: '*/15 * * * *'  # Spouští se každých 15 minut
   workflow_dispatch:  # Umožňuje manuální spuštění
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
       run: |
         git config --local user.email "jan.kuchar.vsb@gmail.com"
         git config --local user.name "GitHub Action"
-        git add data/*.json
+        git add data/peakweather.json
         # Pokračuje i když nejsou změny (git commit by jinak selhal)
         git commit -m "Aktualizace dat o počasí $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
         git push
