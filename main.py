@@ -9,14 +9,9 @@ def ensure_output_dir():
     if not os.path.exists(config.OUTPUT_DIR):
         os.makedirs(config.OUTPUT_DIR)
 
-def write_json_output(data, filename=None):
+def write_json_output(data, filename="peakweather.json"):
     """Zapíše data do JSON souboru"""
     ensure_output_dir()
-    
-    # Pokud není zadán název souboru, vytvoří se jméno podle aktuálního data a času
-    if not filename:
-        now = datetime.now()
-        filename = f"beskydy_weather_{now.strftime('%Y%m%d_%H%M%S')}.json"
     
     # Zajistí, že cesta obsahuje adresář
     filepath = os.path.join(config.OUTPUT_DIR, filename)
