@@ -8,7 +8,7 @@ Skript pro shromažďování dat o počasí z vrcholů Beskyd (Lysá hora, Puste
 
 - Automatické shromažďování dat o počasí z různých zdrojů
 - Zpracování a uložení dat ve formátu JSON
-- Automatické spouštění pomocí GitHub Actions každých 5 minut
+- Automatické spouštění pomocí GitHub Actions každých 10 minut
 - Konfigurovatelné zdroje dat
 
 ## Instalace
@@ -50,7 +50,7 @@ Skript stáhne data z nakonfigurovaných zdrojů a uloží je do JSON souboru v 
 
 ### Automatické spouštění (GitHub Actions)
 
-Repozitář je nakonfigurován s GitHub Actions, které automaticky spouštějí skript každých 5 minut a ukládají výsledky do adresáře `data/`. 
+Repozitář je nakonfigurován s GitHub Actions, které automaticky spouštějí skript každých 10 minut a ukládají výsledky do adresáře `data/`. 
 
 Můžete také spustit workflow manuálně přes záložku "Actions" na GitHub.
 
