@@ -1,0 +1,39 @@
+name: Generate Weather Data
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # Spouští se každé 3 hodiny
+  workflow_dispatch:  # Umožňuje manuální spuštění
+
+jobs:
+  generate-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Create data directory
+      run: mkdir -p data
+        
+    - name: Run data collection script
+      run: python main.py
+      
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/*.json
+        # Pokračuje i když nejsou změny (git commit by jinak selhal)
+        git commit -m "Aktualizace dat o počasí $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
+        git push
