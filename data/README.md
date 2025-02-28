@@ -1,8 +1,8 @@
 # Data o počasí z Beskyd
 
-Tento adresář obsahuje automaticky generované JSON soubory s daty o počasí z vrcholů Beskyd.
+Tento adresář obsahuje automaticky generovaný JSON soubor `peakweather.json` s aktuálními daty o počasí z vrcholů Beskyd.
 
-Soubory jsou generovány GitHub Actions a aktualizovány každých 10 minut.
+Soubor je generován GitHub Actions a aktualizován každých 15 minut.
 
 ## Struktura dat
 
