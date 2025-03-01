@@ -27,7 +27,8 @@ def get_lysa_hora_data():
 
         for row in reversed(rows):
             columns = row.find_all('td')
-            if len(columns) >= 9 and all(col.text.strip() for col in columns[:9]):
+            # Upravená podmínka: alespoň 2 sloupce musí být vyplněné
+            if len(columns) >= 9 and sum(1 for col in columns[:9] if col.text.strip()) >= 2:
                 data_row = columns
                 break
 
