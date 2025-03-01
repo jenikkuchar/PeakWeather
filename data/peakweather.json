@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "01.03.2025 19:00",
-    "temperature": -5.7,
+    "time": "01.03.2025 20:00",
+    "temperature": -5.6,
     "humidity": 94.0,
-    "wind": 5.0,
-    "wind_gust": 12.5,
+    "wind": 4.0,
+    "wind_gust": 6.9,
     "details": "sněžení slabé trvalé"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "01.03.2025 20:10",
-    "temperature": -3.1,
+    "time": "01.03.2025 20:30",
+    "temperature": -3.2,
     "humidity": 100.0
   },
   {
