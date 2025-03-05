@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "05.03.2025 06:00",
-    "temperature": -0.4,
-    "humidity": 35.0,
+    "time": "05.03.2025 07:00",
+    "temperature": 0.1,
+    "humidity": 34.0,
     "wind": 9.0,
-    "wind_gust": 10.7,
-    "details": ""
+    "wind_gust": 9.5,
+    "details": "obloha beze změn"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "05.03.2025 07:00",
-    "temperature": 1.0,
+    "time": "05.03.2025 07:30",
+    "temperature": 2.0,
     "precipitation": 0.0
   }
 ]
