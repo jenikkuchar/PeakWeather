@@ -2,24 +2,24 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "12.03.2025 06:00",
-    "temperature": 1.9,
+    "time": "12.03.2025 07:00",
+    "temperature": 2.0,
     "humidity": 97.0,
     "wind": 10.0,
-    "wind_gust": 13.0,
-    "details": ""
+    "wind_gust": 13.1,
+    "details": "mlha beze změny, oblohu nelze rozeznat"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "12.03.2025 07:10",
-    "temperature": 4.4,
+    "time": "12.03.2025 07:30",
+    "temperature": 4.6,
     "humidity": 100.0
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "12.03.2025 07:00",
+    "time": "12.03.2025 07:30",
     "temperature": 5.0,
     "precipitation": 0.0
   }
