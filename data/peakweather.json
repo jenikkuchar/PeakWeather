@@ -10,6 +10,13 @@
     "details": "sněžení slabé občasné"
   },
   {
+    "code": "pustevny",
+    "peak": "Pustevny",
+    "time": "15.03.2025 10:30",
+    "temperature": -1.8,
+    "humidity": 100.0
+  },
+  {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
     "time": "15.03.2025 10:10",
