@@ -2,24 +2,24 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "16.03.2025 08:00",
-    "temperature": -3.3,
-    "humidity": 95.0,
-    "wind": 8.0,
-    "wind_gust": 11.1,
+    "time": "16.03.2025 09:00",
+    "temperature": -3.2,
+    "humidity": 96.0,
+    "wind": 6.0,
+    "wind_gust": 9.9,
     "details": "mlha v chuchvalcích"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "16.03.2025 09:10",
-    "temperature": -2.0,
+    "time": "16.03.2025 09:30",
+    "temperature": -1.9,
     "humidity": 100.0
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "16.03.2025 09:00",
+    "time": "16.03.2025 09:10",
     "temperature": -5.0,
     "precipitation": 0.0
   }
