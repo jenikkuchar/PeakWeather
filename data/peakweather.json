@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "02.04.2025 10:00",
-    "temperature": 1.3,
-    "humidity": 99.0,
-    "wind": 5.0,
-    "wind_gust": 11.4,
-    "details": "mlha slábnoucí, oblohu nelze rozeznat"
+    "time": "02.04.2025 11:00",
+    "temperature": 0.8,
+    "humidity": 98.0,
+    "wind": 6.0,
+    "wind_gust": 10.4,
+    "details": "mlha beze změny, oblohu nelze rozeznat"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "02.04.2025 12:00",
-    "temperature": 3.0,
+    "time": "02.04.2025 12:30",
+    "temperature": 3.1,
     "humidity": 100.0
   },
   {
