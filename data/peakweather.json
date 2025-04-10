@@ -12,14 +12,14 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "10.04.2025 19:40",
+    "time": "10.04.2025 20:10",
     "temperature": -0.1,
-    "humidity": 68.8
+    "humidity": 67.7
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "10.04.2025 19:30",
+    "time": "10.04.2025 20:00",
     "temperature": 0.0,
     "precipitation": 0.0
   }
