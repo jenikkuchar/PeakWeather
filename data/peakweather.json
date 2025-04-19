@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "19.04.2025 17:00",
-    "temperature": 11.2,
-    "humidity": 59.0,
-    "wind": 3.0,
-    "wind_gust": 7.2,
+    "time": "19.04.2025 18:00",
+    "temperature": 9.5,
+    "humidity": 69.0,
+    "wind": 4.0,
+    "wind_gust": 7.9,
     "details": ""
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "19.04.2025 18:00",
-    "temperature": 11.3,
+    "time": "19.04.2025 18:30",
+    "temperature": 10.8,
     "humidity": 71.3
   },
   {
