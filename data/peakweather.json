@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "06.05.2025 11:00",
-    "temperature": 1.6,
+    "time": "06.05.2025 12:00",
+    "temperature": 2.1,
     "humidity": 98.0,
-    "wind": 3.0,
-    "wind_gust": 6.4,
-    "details": "mlha sílící, oblohu nelze rozeznat"
+    "wind": 4.0,
+    "wind_gust": 6.5,
+    "details": "mrholení slabé trvalé"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "06.05.2025 12:10",
-    "temperature": 4.0,
+    "time": "06.05.2025 12:30",
+    "temperature": 4.3,
     "humidity": 100.0
   },
   {
