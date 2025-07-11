@@ -2,25 +2,25 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "11.07.2025 20:00",
-    "temperature": 9.9,
-    "humidity": 76.0,
-    "wind": 2.0,
-    "wind_gust": 3.4,
-    "details": "vývoj oblaků slábne"
+    "time": "11.07.2025 21:00",
+    "temperature": 8.5,
+    "humidity": 81.0,
+    "wind": 1.0,
+    "wind_gust": 2.8,
+    "details": ""
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "11.07.2025 21:10",
-    "temperature": 11.3,
-    "humidity": 85.0
+    "time": "11.07.2025 21:20",
+    "temperature": 11.5,
+    "humidity": 84.7
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "11.07.2025 20:40",
-    "temperature": 11.0,
+    "time": "11.07.2025 21:10",
+    "temperature": 12.0,
     "precipitation": 0.0
   }
 ]
