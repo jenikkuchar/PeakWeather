@@ -2,17 +2,17 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "21.07.2025 21:00",
-    "temperature": 16.5,
-    "humidity": 87.0,
-    "wind": 5.0,
-    "wind_gust": 14.3,
+    "time": "21.07.2025 22:00",
+    "temperature": 14.5,
+    "humidity": 96.0,
+    "wind": 6.0,
+    "wind_gust": 10.4,
     "details": "bouřka slabá nebo mírná s deštěm nebo sněžením"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "21.07.2025 22:10",
+    "time": "21.07.2025 22:30",
     "temperature": 16.4,
     "humidity": 95.3
   },
