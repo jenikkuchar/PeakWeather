@@ -2,25 +2,25 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "17.08.2025 10:00",
-    "temperature": 12.0,
-    "humidity": 87.0,
-    "wind": 5.0,
-    "wind_gust": 6.3,
-    "details": "mlha v poslední hodině"
+    "time": "17.08.2025 11:00",
+    "temperature": 11.6,
+    "humidity": 89.0,
+    "wind": 3.0,
+    "wind_gust": 6.0,
+    "details": "vývoj oblaků sílí"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "17.08.2025 11:00",
-    "temperature": 16.4,
-    "humidity": 82.0
+    "time": "17.08.2025 11:20",
+    "temperature": 16.1,
+    "humidity": 81.9
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "17.08.2025 11:00",
-    "temperature": 15.0,
+    "time": "17.08.2025 11:10",
+    "temperature": 16.0,
     "precipitation": 0.0
   }
 ]
