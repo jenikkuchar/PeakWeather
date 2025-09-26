@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "26.09.2025 17:00",
-    "temperature": 8.4,
+    "time": "26.09.2025 18:00",
+    "temperature": 7.8,
     "humidity": 97.0,
-    "wind": 3.0,
-    "wind_gust": 4.4,
+    "wind": 5.0,
+    "wind_gust": 6.7,
     "details": "mlha beze změny, oblohu nelze rozeznat"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "26.09.2025 18:10",
-    "temperature": 10.5,
+    "time": "26.09.2025 18:30",
+    "temperature": 10.3,
     "humidity": 100.0
   },
   {
