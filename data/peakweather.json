@@ -2,17 +2,17 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "11.10.2025 20:00",
-    "temperature": 4.7,
+    "time": "11.10.2025 21:00",
+    "temperature": 4.6,
     "humidity": 98.0,
-    "wind": 6.0,
-    "wind_gust": 11.6,
-    "details": "mlha beze změny, oblohu nelze rozeznat"
+    "wind": 5.0,
+    "wind_gust": 9.4,
+    "details": "mlha slábnoucí, oblohu nelze rozeznat"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "11.10.2025 21:10",
+    "time": "11.10.2025 21:30",
     "temperature": 6.5,
     "humidity": 100.0
   },
