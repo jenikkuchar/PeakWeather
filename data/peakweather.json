@@ -2,19 +2,19 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "17.10.2025 17:00",
-    "temperature": 3.4,
-    "humidity": 97.0,
-    "wind": 4.0,
-    "wind_gust": 7.8,
+    "time": "17.10.2025 18:00",
+    "temperature": 3.0,
+    "humidity": 96.0,
+    "wind": 3.0,
+    "wind_gust": 6.5,
     "details": "déšť slabý občasný"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "17.10.2025 18:10",
-    "temperature": 5.5,
-    "humidity": 99.9
+    "time": "17.10.2025 18:30",
+    "temperature": 5.4,
+    "humidity": 100.0
   },
   {
     "code": "velky_javornik",
