@@ -2,24 +2,24 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "26.11.2025 21:00",
-    "temperature": -6.6,
+    "time": "26.11.2025 22:00",
+    "temperature": -6.5,
     "humidity": 93.0,
-    "wind": 5.0,
-    "wind_gust": 8.1,
+    "wind": 7.0,
+    "wind_gust": 9.5,
     "details": "mlha mrznoucí, oblohu nelze rozeznat"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "26.11.2025 22:00",
+    "time": "26.11.2025 22:20",
     "temperature": -4.1,
     "humidity": 100.0
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "26.11.2025 21:40",
+    "time": "26.11.2025 22:10",
     "temperature": -4.0,
     "precipitation": 0.0
   }
