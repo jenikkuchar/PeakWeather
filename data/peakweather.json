@@ -2,11 +2,11 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "10.12.2025 11:00",
-    "temperature": 6.5,
-    "humidity": 73.0,
-    "wind": 7.0,
-    "wind_gust": 9.4,
+    "time": "10.12.2025 12:00",
+    "temperature": 7.9,
+    "humidity": 66.0,
+    "wind": 6.0,
+    "wind_gust": 9.1,
     "details": ""
   },
   {
@@ -19,7 +19,7 @@
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "10.12.2025 11:40",
+    "time": "10.12.2025 12:10",
     "temperature": 7.0,
     "precipitation": 0.0
   }
