@@ -12,14 +12,14 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "12.12.2025 20:40",
-    "temperature": 4.5,
-    "humidity": 43.6
+    "time": "12.12.2025 21:10",
+    "temperature": 4.2,
+    "humidity": 45.8
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "12.12.2025 20:30",
+    "time": "12.12.2025 20:40",
     "temperature": 6.0,
     "precipitation": 0.0
   }
