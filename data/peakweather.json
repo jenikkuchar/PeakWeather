@@ -2,17 +2,17 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "19.12.2025 05:00",
+    "time": "19.12.2025 06:00",
     "temperature": 1.2,
     "humidity": 97.0,
-    "wind": 12.0,
-    "wind_gust": 14.7,
+    "wind": 13.0,
+    "wind_gust": 17.4,
     "details": ""
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "19.12.2025 06:10",
+    "time": "19.12.2025 06:30",
     "temperature": 3.3,
     "humidity": 100.0
   },
