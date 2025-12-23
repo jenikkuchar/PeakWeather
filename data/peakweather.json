@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "23.12.2025 15:00",
-    "temperature": -3.5,
-    "humidity": 95.0,
+    "time": "23.12.2025 16:00",
+    "temperature": -4.0,
+    "humidity": 94.0,
     "wind": 5.0,
-    "wind_gust": 7.6,
-    "details": "mlha v chuchvalcích"
+    "wind_gust": 6.9,
+    "details": "mlha mrznoucí, oblohu nelze rozeznat"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "23.12.2025 16:10",
-    "temperature": -2.7,
+    "time": "23.12.2025 16:30",
+    "temperature": -3.0,
     "humidity": 100.0
   },
   {
