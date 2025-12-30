@@ -2,19 +2,19 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "30.12.2025 15:00",
-    "temperature": -10.6,
-    "humidity": 88.0,
-    "wind": 6.0,
-    "wind_gust": 8.7,
-    "details": ""
+    "time": "30.12.2025 16:00",
+    "temperature": -10.9,
+    "humidity": 89.0,
+    "wind": 4.0,
+    "wind_gust": 7.7,
+    "details": "srážky v dohledu dále než 5 km"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "30.12.2025 16:10",
+    "time": "30.12.2025 16:30",
     "temperature": -7.7,
-    "humidity": 92.0
+    "humidity": 95.3
   },
   {
     "code": "velky_javornik",
