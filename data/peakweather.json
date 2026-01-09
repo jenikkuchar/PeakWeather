@@ -2,8 +2,8 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "09.01.2026 20:00",
-    "temperature": -8.0,
+    "time": "09.01.2026 21:00",
+    "temperature": -7.5,
     "humidity": 92.0,
     "wind": 2.0,
     "wind_gust": 2.5,
@@ -12,8 +12,8 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "09.01.2026 21:10",
-    "temperature": -6.8,
+    "time": "09.01.2026 21:30",
+    "temperature": -6.9,
     "humidity": 98.0
   },
   {
