@@ -2,24 +2,24 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "16.01.2026 06:00",
+    "time": "16.01.2026 07:00",
     "temperature": 1.2,
-    "humidity": 87.0,
-    "wind": 3.0,
-    "wind_gust": 3.3,
-    "details": ""
+    "humidity": 89.0,
+    "wind": 4.0,
+    "wind_gust": 4.0,
+    "details": "vývoj oblaků sílí"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "16.01.2026 07:10",
-    "temperature": 2.4,
+    "time": "16.01.2026 07:50",
+    "temperature": 2.5,
     "humidity": 100.0
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "16.01.2026 07:00",
+    "time": "16.01.2026 07:40",
     "temperature": 2.0,
     "precipitation": 0.0
   }
