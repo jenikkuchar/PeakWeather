@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "11.02.2026 10:00",
-    "temperature": -3.3,
+    "time": "11.02.2026 11:00",
+    "temperature": -3.1,
     "humidity": 95.0,
-    "wind": 15.0,
-    "wind_gust": 18.6,
+    "wind": 14.0,
+    "wind_gust": 18.4,
     "details": "mlha mrznoucí, oblohu nelze rozeznat"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "11.02.2026 11:00",
-    "temperature": -0.6,
+    "time": "11.02.2026 12:00",
+    "temperature": 0.0,
     "humidity": 100.0
   },
   {
