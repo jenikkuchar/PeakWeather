@@ -1,6 +1,16 @@
-import requests
+import os
+import sys
+import requests  # pyright: ignore[reportMissingModuleSource]
 import re
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup  # pyright: ignore[reportMissingModuleSource]
+
+# Ensure project root is on sys.path when running this file directly
+if __package__ is None or __name__ == "__main__":
+    current_dir = os.path.dirname(__file__)
+    project_root = os.path.dirname(current_dir)
+    if project_root not in sys.path:
+        sys.path.insert(0, project_root)
+
 from utils import extract_num, normalize_text
 import config
 
