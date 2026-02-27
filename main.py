@@ -2,7 +2,7 @@ import json
 import os
 from datetime import datetime
 import config
-from peaks import get_lysa_hora_data, get_pustevny_data, get_velky_javornik_data
+from peaks import get_lysa_hora_data, get_pustevny_data, get_velky_javornik_data, get_frenstat_data, get_straznice_data
 
 def ensure_output_dir():
     """Zajistí existenci adresáře pro výstupní JSON soubory"""
@@ -38,6 +38,14 @@ def main():
     velky_javornik = get_velky_javornik_data()
     if velky_javornik:
         data.append(velky_javornik)
+
+    frenstat = get_frenstat_data()
+    if frenstat:
+        data.append(frenstat)
+
+    straznice = get_straznice_data()
+    if straznice:
+        data.append(straznice)
 
     # Zápis dat do JSON souboru
     if data:

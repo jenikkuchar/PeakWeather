@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from utils import extract_num, normalize_text
 import config
+from .constants import VELKY_JAVORNIK_API_SOURCE_URL, VELKY_JAVORNIK_PREVIEW_URL
 
 def get_velky_javornik_data():
     """Get data from Velký Javorník"""
@@ -28,7 +29,7 @@ def get_velky_javornik_data():
         # 1. Attempt to get data via API
         if config.SOURCES["velky_javornik_api"]:
             try:
-                api_url = f"https://pgsonda.cz/api/api_json_user.php?name=velkyjavornik&api_key={config.API_KEY}"
+                api_url = f"{VELKY_JAVORNIK_API_SOURCE_URL}&api_key={config.API_KEY}"
                 api_response = requests.get(api_url, timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
 
                 if api_response.status_code == 200:
@@ -124,6 +125,7 @@ def get_velky_javornik_data():
         if result["temperature"] is not None:
             # Remove None values for cleaner JSON
             result_clean = {k: v for k, v in result.items() if v is not None}
+            result_clean["preview_url"] = VELKY_JAVORNIK_PREVIEW_URL
             return result_clean
 
         return None
