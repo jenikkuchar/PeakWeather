@@ -1,5 +1,6 @@
 import requests
 import re
+from typing import Any
 from bs4 import BeautifulSoup
 from datetime import datetime
 from utils import extract_num, normalize_text
@@ -104,8 +105,8 @@ def get_velky_javornik_data():
                     soup = BeautifulSoup(html_content, 'html.parser')
 
                     # Find spans with temperature and precipitation
-                    temp_spans = soup.find_all('span', id=lambda x: x and 'teplotaLbl' in x)
-                    precip_spans = soup.find_all('span', id=lambda x: x and 'srazkaLbl' in x)
+                    temp_spans = soup.find_all('span', attrs={"id": (lambda x: x and 'teplotaLbl' in x)})  # type: ignore[arg-type]
+                    precip_spans = soup.find_all('span', attrs={"id": (lambda x: x and 'srazkaLbl' in x)})  # type: ignore[arg-type]
 
                     if temp_spans and not result["temperature"]:
                         result["temperature"] = extract_num(temp_spans[0].text)

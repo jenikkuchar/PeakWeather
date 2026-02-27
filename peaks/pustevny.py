@@ -30,23 +30,28 @@ def get_pustevny_data():
         # Find sensor with id=1 for temperature
         temp_sensor = root.find(".//th2e:sns[@id='1']", namespace)
         if temp_sensor is not None:
-            temperature = float(temp_sensor.get('val'))
+            temp_val = temp_sensor.get('val')
+            if temp_val is not None:
+                temperature = float(temp_val)
 
         # Find sensor with id=2 for humidity
         humid_sensor = root.find(".//th2e:sns[@id='2']", namespace)
         if humid_sensor is not None:
-            humidity = float(humid_sensor.get('val'))
+            humid_val = humid_sensor.get('val')
+            if humid_val is not None:
+                humidity = float(humid_val)
 
         # Find time data
         status_elem = root.find(".//th2e:status", namespace)
         if status_elem is not None and 'time' in status_elem.attrib:
             time_str = status_elem.get('time')
-            # Converting time format from MM/DD/YYYY HH:MM:SS to DD.MM.YYYY HH:MM
-            try:
-                dt = datetime.strptime(time_str, "%m/%d/%Y %H:%M:%S")
-                time = dt.strftime("%d.%m.%Y %H:%M")
-            except ValueError:
-                time = datetime.now().strftime("%d.%m.%Y %H:%M")
+            if time_str is not None:
+                # Converting time format from MM/DD/YYYY HH:MM:SS to DD.MM.YYYY HH:MM
+                try:
+                    dt = datetime.strptime(time_str, "%m/%d/%Y %H:%M:%S")
+                    time = dt.strftime("%d.%m.%Y %H:%M")
+                except ValueError:
+                    time = datetime.now().strftime("%d.%m.%Y %H:%M")
         else:
             time = datetime.now().strftime("%d.%m.%Y %H:%M")
 
