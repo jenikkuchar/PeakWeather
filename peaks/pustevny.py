@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from utils import normalize_text
 import config
+from .constants import PUSTEVNY_SOURCE_URL, PUSTEVNY_PREVIEW_URL
 
 def get_pustevny_data():
     """Get data from Pustevny - using XML source"""
@@ -10,7 +11,7 @@ def get_pustevny_data():
         return None
         
     try:
-        url = "https://www.pustevny.cz/temp/pustevny.xml"
+        url = PUSTEVNY_SOURCE_URL
         response = requests.get(url, timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
 
         if response.status_code != 200:
@@ -64,7 +65,8 @@ def get_pustevny_data():
             "peak": peak,
             "time": time,
             "temperature": temperature,
-            "humidity": humidity
+            "humidity": humidity,
+            "preview_url": PUSTEVNY_PREVIEW_URL,
         }
     except Exception:
         return None

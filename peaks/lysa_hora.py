@@ -13,6 +13,7 @@ if __package__ is None or __name__ == "__main__":
 
 from utils import extract_num, normalize_text
 import config
+from .constants import LYSA_HORA_SOURCE_URL, LYSA_HORA_PREVIEW_URL
 
 def get_lysa_hora_data():
     """Get data from Lysá hora"""
@@ -20,7 +21,7 @@ def get_lysa_hora_data():
         return None
         
     try:
-        url = "https://www.lysahora.cz/pocasi.phtml"
+        url = LYSA_HORA_SOURCE_URL
         response = requests.get(url, timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
 
         if response.status_code != 200:
@@ -68,7 +69,8 @@ def get_lysa_hora_data():
             "humidity": extract_num(data_row[2].text),
             "wind": extract_num(data_row[4].text),
             "wind_gust": extract_num(data_row[5].text),
-            "details": data_row[8].text.strip()
+            "details": data_row[8].text.strip(),
+            "preview_url": LYSA_HORA_PREVIEW_URL,
         }
     except Exception:
         return None

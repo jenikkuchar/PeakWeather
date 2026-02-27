@@ -17,5 +17,7 @@ SOURCES = {
     "lysa_hora": True,
     "pustevny": True,
     "velky_javornik": True,
-    "velky_javornik_api": False  # Zdroj pro API pgsonda.cz
+    "velky_javornik_api": False,  # Zdroj pro API pgsonda.cz
+    "frenstat": True,
+    "straznice": True,
 }
