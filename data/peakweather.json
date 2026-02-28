@@ -2,10 +2,10 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "28.02.2026 03:00",
-    "temperature": 3.6,
-    "humidity": 72.0,
-    "wind": 8.0,
+    "time": "28.02.2026 05:00",
+    "temperature": 5.5,
+    "humidity": 44.0,
+    "wind": 9.0,
     "wind_gust": 10.0,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
@@ -13,15 +13,15 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "28.02.2026 04:10",
-    "temperature": 2.0,
-    "humidity": 91.5,
+    "time": "28.02.2026 05:30",
+    "temperature": 1.7,
+    "humidity": 91.8,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "28.02.2026 04:10",
+    "time": "28.02.2026 05:30",
     "temperature": 2.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -29,21 +29,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "28.02.2026 04:00",
-    "temperature": 0.8,
+    "time": "28.02.2026 05:00",
+    "temperature": 0.4,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 83.0,
+    "humidity": 84.0,
     "precipitation": 0.0,
-    "wind": 0.4
+    "wind": 0.5
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "28.02.2026 04:00",
-    "temperature": 3.9,
+    "time": "28.02.2026 05:00",
+    "temperature": 3.5,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
     "humidity": 74.0,
     "precipitation": 0.0,
-    "wind": 1.8
+    "wind": 2.1
   }
 ]
