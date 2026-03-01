@@ -2,20 +2,20 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "01.03.2026 19:00",
-    "temperature": 1.5,
-    "humidity": 93.0,
+    "time": "01.03.2026 20:00",
+    "temperature": 1.9,
+    "humidity": 87.0,
     "wind": 4.0,
-    "wind_gust": 5.2,
+    "wind_gust": 4.8,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "01.03.2026 20:10",
-    "temperature": 4.4,
-    "humidity": 87.2,
+    "time": "01.03.2026 20:30",
+    "temperature": 4.2,
+    "humidity": 88.3,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
