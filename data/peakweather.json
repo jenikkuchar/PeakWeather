@@ -13,9 +13,9 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "01.03.2026 16:50",
-    "temperature": 5.9,
-    "humidity": 81.8,
+    "time": "01.03.2026 17:10",
+    "temperature": 5.5,
+    "humidity": 82.8,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
@@ -29,21 +29,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "01.03.2026 16:00",
-    "temperature": 11.6,
+    "time": "01.03.2026 17:00",
+    "temperature": 9.9,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 47.0,
+    "humidity": 54.0,
     "precipitation": 0.0,
-    "wind": 0.9
+    "wind": 0.0
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "01.03.2026 16:00",
-    "temperature": 13.5,
+    "time": "01.03.2026 17:00",
+    "temperature": 11.8,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 54.0,
+    "humidity": 59.0,
     "precipitation": 0.0,
-    "wind": 1.5
+    "wind": 1.3
   }
 ]
