@@ -2,20 +2,20 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "07.03.2026 15:00",
-    "temperature": 7.2,
-    "humidity": 51.0,
-    "wind": 2.0,
-    "wind_gust": 2.8,
+    "time": "07.03.2026 16:00",
+    "temperature": 7.7,
+    "humidity": 48.0,
+    "wind": 1.0,
+    "wind_gust": 1.8,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "07.03.2026 16:10",
-    "temperature": 9.8,
-    "humidity": 53.9,
+    "time": "07.03.2026 16:30",
+    "temperature": 9.5,
+    "humidity": 55.3,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
@@ -29,20 +29,20 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "07.03.2026 13:00",
-    "temperature": 15.5,
+    "time": "07.03.2026 16:10",
+    "temperature": 14.1,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 35.0,
+    "humidity": 38.0,
     "precipitation": 0.0,
-    "wind": 1.4
+    "wind": 0.8
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "07.03.2026 14:00",
-    "temperature": 17.6,
+    "time": "07.03.2026 16:10",
+    "temperature": 15.8,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 32.0,
+    "humidity": 35.0,
     "precipitation": 0.0,
     "wind": 1.2
   }
