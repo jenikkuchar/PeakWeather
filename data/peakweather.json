@@ -2,27 +2,27 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "08.03.2026 08:00",
-    "temperature": 6.7,
+    "time": "08.03.2026 09:00",
+    "temperature": 7.6,
     "humidity": 19.0,
-    "wind": 3.0,
-    "wind_gust": 6.0,
+    "wind": 2.0,
+    "wind_gust": 3.8,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "08.03.2026 09:10",
-    "temperature": 10.6,
-    "humidity": 36.8,
+    "time": "08.03.2026 09:50",
+    "temperature": 11.9,
+    "humidity": 37.2,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "08.03.2026 09:00",
-    "temperature": 8.0,
+    "time": "08.03.2026 09:40",
+    "temperature": 9.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
   },
