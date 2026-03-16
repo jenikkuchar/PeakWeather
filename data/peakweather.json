@@ -2,18 +2,18 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "16.03.2026 21:00",
-    "temperature": -1.2,
+    "time": "16.03.2026 22:00",
+    "temperature": -1.7,
     "humidity": 95.0,
-    "wind": 3.0,
-    "wind_gust": 7.2,
-    "details": "sněžení v poslední hodině",
+    "wind": 6.0,
+    "wind_gust": 8.2,
+    "details": "mlha mrznoucí, oblohu nelze rozeznat",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "16.03.2026 21:50",
+    "time": "16.03.2026 22:20",
     "temperature": 0.7,
     "humidity": 94.8,
     "preview_url": "https://pustevny.cz/pocasi/"
@@ -21,7 +21,7 @@
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "16.03.2026 21:40",
+    "time": "16.03.2026 22:10",
     "temperature": 0.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -29,21 +29,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "16.03.2026 21:00",
-    "temperature": 4.8,
+    "time": "16.03.2026 22:00",
+    "temperature": 3.7,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 76.0,
+    "humidity": 81.0,
     "precipitation": 0.0,
-    "wind": 1.5
+    "wind": 0.0
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "16.03.2026 21:00",
-    "temperature": 4.3,
+    "time": "16.03.2026 22:00",
+    "temperature": 4.2,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 86.0,
+    "humidity": 84.0,
     "precipitation": 0.0,
-    "wind": 0.8
+    "wind": 1.3
   }
 ]
