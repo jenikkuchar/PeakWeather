@@ -13,16 +13,16 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "24.03.2026 22:20",
-    "temperature": 4.4,
-    "humidity": 61.9,
+    "time": "24.03.2026 22:50",
+    "temperature": 4.5,
+    "humidity": 59.3,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "24.03.2026 22:10",
-    "temperature": 4.0,
+    "time": "24.03.2026 22:40",
+    "temperature": 3.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
   },
