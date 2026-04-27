@@ -2,15 +2,15 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "27.04.2026 16:20",
-    "temperature": 10.7,
-    "humidity": 41.8,
+    "time": "27.04.2026 18:00",
+    "temperature": 10.0,
+    "humidity": 44.6,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "27.04.2026 16:10",
+    "time": "27.04.2026 17:40",
     "temperature": 10.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -18,21 +18,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "27.04.2026 16:00",
-    "temperature": 15.1,
+    "time": "27.04.2026 17:00",
+    "temperature": 13.5,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 27.0,
+    "humidity": 29.0,
     "precipitation": 0.0,
-    "wind": 1.3
+    "wind": 0.9
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "27.04.2026 16:00",
-    "temperature": 19.1,
+    "time": "27.04.2026 17:00",
+    "temperature": 18.5,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 26.0,
+    "humidity": 27.0,
     "precipitation": 0.0,
-    "wind": 1.2
+    "wind": 0.8
   }
 ]
