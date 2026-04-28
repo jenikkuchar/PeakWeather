@@ -2,26 +2,26 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "27.04.2026 24:00",
-    "temperature": 1.7,
-    "humidity": 47.0,
-    "wind": 6.0,
-    "wind_gust": 7.8,
+    "time": "28.04.2026 05:00",
+    "temperature": 1.2,
+    "humidity": 53.0,
+    "wind": 5.0,
+    "wind_gust": 6.6,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "28.04.2026 02:00",
-    "temperature": 4.6,
-    "humidity": 47.2,
+    "time": "28.04.2026 06:00",
+    "temperature": 4.1,
+    "humidity": 52.2,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "28.04.2026 01:40",
+    "time": "28.04.2026 05:40",
     "temperature": 5.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -29,15 +29,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "28.04.2026 00:03",
-    "temperature": null,
-    "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM"
+    "time": "28.04.2026 05:00",
+    "temperature": 0.5,
+    "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
+    "humidity": 76.0,
+    "precipitation": 0.0,
+    "wind": 0.5
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "28.04.2026 00:03",
-    "temperature": null,
-    "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM"
+    "time": "28.04.2026 04:50",
+    "temperature": -0.3,
+    "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
+    "humidity": 93.0,
+    "precipitation": 0.0,
+    "wind": 0.3
   }
 ]
