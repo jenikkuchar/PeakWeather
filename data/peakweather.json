@@ -2,15 +2,15 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "18.05.2026 20:10",
-    "temperature": 6.2,
+    "time": "18.05.2026 22:00",
+    "temperature": 25.9,
     "humidity": 100.0,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "18.05.2026 20:00",
+    "time": "18.05.2026 21:40",
     "temperature": 6.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -18,21 +18,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "18.05.2026 20:00",
-    "temperature": 9.4,
+    "time": "18.05.2026 21:00",
+    "temperature": 6.7,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 91.0,
+    "humidity": 97.0,
     "precipitation": 0.0,
-    "wind": 0.0
+    "wind": 0.3
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "18.05.2026 20:00",
-    "temperature": 13.5,
+    "time": "18.05.2026 21:00",
+    "temperature": 9.9,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 76.0,
+    "humidity": 89.0,
     "precipitation": 0.0,
-    "wind": 0.9
+    "wind": 0.4
   }
 ]
