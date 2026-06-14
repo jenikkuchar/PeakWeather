@@ -2,28 +2,28 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "15.06.2026 00:40",
-    "temperature": 8.3,
-    "humidity": 82.8,
+    "time": "15.06.2026 01:50",
+    "temperature": 7.9,
+    "humidity": 83.1,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "15.06.2026 00:40",
-    "temperature": 8.0,
+    "time": "15.06.2026 01:40",
+    "temperature": 7.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
   },
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "15.06.2026 00:00",
-    "temperature": 12.3,
+    "time": "15.06.2026 01:00",
+    "temperature": 12.1,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 67.0,
+    "humidity": 68.0,
     "precipitation": 0.0,
-    "wind": 0.8
+    "wind": 1.2
   },
   {
     "code": "straznice",
