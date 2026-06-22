@@ -2,48 +2,48 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "22.06.2026 21:00",
-    "temperature": 14.7,
+    "time": "22.06.2026 24:00",
+    "temperature": 14.3,
     "humidity": 97.0,
-    "wind": 8.0,
-    "wind_gust": 11.3,
-    "details": "kouřmo",
+    "wind": 5.0,
+    "wind_gust": 8.9,
+    "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "22.06.2026 22:20",
-    "temperature": 17.6,
-    "humidity": 92.1,
+    "time": "23.06.2026 00:20",
+    "temperature": 16.0,
+    "humidity": 92.4,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "22.06.2026 22:10",
-    "temperature": 17.0,
+    "time": "23.06.2026 00:10",
+    "temperature": 16.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
   },
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "22.06.2026 22:00",
-    "temperature": 18.5,
+    "time": "23.06.2026 00:00",
+    "temperature": 17.6,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 94.0,
+    "humidity": 96.0,
     "precipitation": 0.0,
     "wind": 0.0
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "22.06.2026 22:00",
-    "temperature": 22.3,
+    "time": "23.06.2026 00:00",
+    "temperature": 19.1,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 73.0,
+    "humidity": 87.0,
     "precipitation": 0.0,
-    "wind": 1.2
+    "wind": 0.6
   }
 ]
