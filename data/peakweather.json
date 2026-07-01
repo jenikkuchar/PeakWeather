@@ -13,37 +13,31 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "01.07.2026 01:00",
-    "temperature": 23.0,
-    "humidity": 65.8,
+    "time": "01.07.2026 02:10",
+    "temperature": 22.4,
+    "humidity": 67.5,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "01.07.2026 00:40",
-    "temperature": 22.0,
+    "time": "01.07.2026 02:00",
+    "temperature": 21.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
   },
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "01.07.2026 00:00",
-    "temperature": 20.5,
-    "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 89.0,
-    "precipitation": 0.0,
-    "wind": 0.0
+    "time": "01.07.2026 00:18",
+    "temperature": null,
+    "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM"
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "01.07.2026 00:00",
-    "temperature": 23.0,
-    "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 85.0,
-    "precipitation": 0.0,
-    "wind": 0.6
+    "time": "01.07.2026 00:18",
+    "temperature": null,
+    "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM"
   }
 ]
