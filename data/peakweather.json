@@ -2,27 +2,27 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "10.08.2026 12:00",
-    "temperature": 21.2,
-    "humidity": 50.0,
-    "wind": 4.0,
-    "wind_gust": 9.8,
+    "time": "10.08.2026 13:00",
+    "temperature": 20.1,
+    "humidity": 55.0,
+    "wind": 5.0,
+    "wind_gust": 8.9,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "10.08.2026 12:40",
-    "temperature": 24.1,
-    "humidity": 50.1,
+    "time": "10.08.2026 13:30",
+    "temperature": 25.4,
+    "humidity": 48.2,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "10.08.2026 12:30",
-    "temperature": 24.0,
+    "time": "10.08.2026 13:30",
+    "temperature": 27.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
   },
