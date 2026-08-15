@@ -2,20 +2,20 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "15.08.2026 18:00",
-    "temperature": 23.7,
-    "humidity": 32.0,
-    "wind": 2.0,
-    "wind_gust": 4.5,
+    "time": "15.08.2026 19:00",
+    "temperature": 21.9,
+    "humidity": 37.0,
+    "wind": 1.0,
+    "wind_gust": 3.7,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "15.08.2026 19:10",
-    "temperature": 24.1,
-    "humidity": 37.6,
+    "time": "15.08.2026 19:30",
+    "temperature": 23.6,
+    "humidity": 38.6,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
