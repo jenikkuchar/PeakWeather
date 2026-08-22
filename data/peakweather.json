@@ -13,17 +13,17 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "22.08.2026 15:40",
-    "temperature": 13.8,
-    "humidity": 89.7,
+    "time": "22.08.2026 15:50",
+    "temperature": 14.2,
+    "humidity": 86.9,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "22.08.2026 15:30",
+    "time": "22.08.2026 15:40",
     "temperature": 14.0,
-    "precipitation": 0.2,
+    "precipitation": 0.3,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
   },
   {
