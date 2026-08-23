@@ -2,20 +2,20 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "23.08.2026 20:00",
-    "temperature": 9.9,
-    "humidity": 74.0,
-    "wind": 2.0,
-    "wind_gust": 3.8,
+    "time": "23.08.2026 21:00",
+    "temperature": 9.0,
+    "humidity": 78.0,
+    "wind": 3.0,
+    "wind_gust": 4.9,
     "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "23.08.2026 21:10",
-    "temperature": 12.5,
-    "humidity": 72.5,
+    "time": "23.08.2026 21:30",
+    "temperature": 12.1,
+    "humidity": 73.4,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
@@ -29,21 +29,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "23.08.2026 20:00",
-    "temperature": 14.4,
+    "time": "23.08.2026 21:00",
+    "temperature": 12.1,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 79.0,
+    "humidity": 84.0,
     "precipitation": 0.0,
-    "wind": 0.3
+    "wind": 0.4
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "23.08.2026 20:00",
-    "temperature": 18.4,
+    "time": "23.08.2026 21:00",
+    "temperature": 15.8,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 59.0,
+    "humidity": 76.0,
     "precipitation": 0.0,
-    "wind": 0.4
+    "wind": 0.5
   }
 ]
