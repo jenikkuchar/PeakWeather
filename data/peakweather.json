@@ -2,26 +2,26 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "01.09.2026 03:00",
-    "temperature": 11.5,
-    "humidity": 81.0,
-    "wind": 8.0,
-    "wind_gust": 11.0,
-    "details": "",
+    "time": "01.09.2026 08:00",
+    "temperature": 9.4,
+    "humidity": 92.0,
+    "wind": 7.0,
+    "wind_gust": 10.0,
+    "details": "obloha beze změn",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "01.09.2026 03:50",
-    "temperature": 14.8,
-    "humidity": 72.5,
+    "time": "01.09.2026 08:50",
+    "temperature": 12.5,
+    "humidity": 83.1,
     "preview_url": "https://pustevny.cz/pocasi/"
   },
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "01.09.2026 03:40",
+    "time": "01.09.2026 08:40",
     "temperature": 15.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -29,21 +29,21 @@
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "01.09.2026 03:00",
-    "temperature": 15.9,
+    "time": "01.09.2026 08:00",
+    "temperature": 16.4,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
-    "humidity": 75.0,
+    "humidity": 72.0,
     "precipitation": 0.0,
-    "wind": 0.1
+    "wind": 1.0
   },
   {
     "code": "straznice",
     "peak": "Strážnice",
-    "time": "01.09.2026 03:00",
-    "temperature": 16.6,
+    "time": "01.09.2026 08:00",
+    "temperature": 17.7,
     "preview_url": "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM",
-    "humidity": 81.0,
+    "humidity": 73.0,
     "precipitation": 0.0,
-    "wind": 2.0
+    "wind": 1.3
   }
 ]
