@@ -12,6 +12,9 @@ VELKY_JAVORNIK_PREVIEW_URL = "https://www.pod.cz/portal/Srazky/cz/smartphone/Mer
 FRENSTAT_SOURCE_URL = "https://opendata.chmi.cz/meteorology/climate/now/data/10m-0-203-0-11785-{}.json"
 FRENSTAT_PREVIEW_URL = "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM"
 
+# XContest Wind API (větrné sondy LAA ČR), {} = ID sondy
+XCONTEST_SOURCE_URL = "https://wind.xcontest.app/{}"
+
 # CHMI Radějov (B7RADE01), od 16. 9. 2026 nástupce stanice Strážnice
 # {date} ve formátu YYYYMMDD, např. 20260227
 RADEJOV_SOURCE_URL = "https://opendata.chmi.cz/meteorology/climate/now/data/10m-0-203-0-41302058001-{}.json"
