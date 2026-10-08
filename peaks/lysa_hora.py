@@ -2,7 +2,6 @@ import os
 import sys
 import requests  # pyright: ignore[reportMissingModuleSource]
 import re
-from datetime import datetime
 from bs4 import BeautifulSoup  # pyright: ignore[reportMissingModuleSource]
 
 # Ensure project root is on sys.path when running this file directly
@@ -12,7 +11,7 @@ if __package__ is None or __name__ == "__main__":
     if project_root not in sys.path:
         sys.path.insert(0, project_root)
 
-from utils import extract_num, normalize_text
+from utils import extract_num, normalize_text, prague_now_str
 import config
 from .constants import LYSA_HORA_SOURCE_URL, LYSA_HORA_PREVIEW_URL
 
@@ -29,7 +28,7 @@ def get_lysa_hora_data():
     result = {
         "code": code,
         "peak": peak,
-        "time": datetime.now().strftime("%d.%m.%Y %H:%M"),
+        "time": prague_now_str(),
         "temperature": None,
         "humidity": None,
         "wind": None,

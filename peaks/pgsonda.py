@@ -3,10 +3,9 @@ import requests
 from datetime import datetime
 from typing import Optional, Dict, Any
 from bs4 import BeautifulSoup
-from utils import extract_num
+from utils import extract_num, utc_to_prague_local
 import config
 from .constants import PGSONDA_TABLE_URL
-from .chmi import _utc_to_prague_local
 
 
 def _header_key(th) -> Optional[str]:
@@ -73,7 +72,7 @@ def get_pgsonda_data(slug: str, peak: str, code: str) -> Optional[dict]:
     if not config.SOURCES.get(code, True):
         return None
 
-    now = _utc_to_prague_local(datetime.utcnow())
+    now = utc_to_prague_local(datetime.utcnow())
     result = {
         "code": code,
         "peak": peak,
