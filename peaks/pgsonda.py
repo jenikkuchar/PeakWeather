@@ -1,60 +1,83 @@
+import re
 import requests
 from datetime import datetime
 from typing import Optional, Dict, Any
 from bs4 import BeautifulSoup
 from utils import extract_num
 import config
-from .constants import PGSONDA_OVERVIEW_URL
+from .constants import PGSONDA_TABLE_URL
 from .frenstat import _utc_to_prague_local
 
-# Přehled všech sond se stahuje jen jednou za běh skriptu
-_overview_cache: Optional[Dict[str, Dict[str, Any]]] = None
+
+def _header_key(th) -> Optional[str]:
+    """Určí, co je ve sloupci tabulky, podle ikony nebo textu v hlavičce."""
+    img = th.find('img')
+    if img is not None:
+        src = str(img.get('src', ''))
+        for icon, key in (("icon_sample", "time"), ("icon_arrow", "wind_direction"),
+                          ("icon_temp", "temperature"), ("icon_hum", "humidity")):
+            if icon in src:
+                return key
+        return None
+    text = th.get_text(strip=True)
+    if text == "max":
+        return "wind_gust"
+    if text in ("ø", "ø", "&oslash"):
+        return "wind"
+    return None
 
 
-def _load_overview() -> Dict[str, Dict[str, Any]]:
-    """Stáhne tabulku SEZNAM STANIC z pgsonda.cz a vrátí data podle slugu sondy (část URL)."""
-    global _overview_cache
-    if _overview_cache is not None:
-        return _overview_cache
+def _parse_time(text: str, now: datetime) -> Optional[str]:
+    """'Čt 8.10. 22:01' (místní čas, bez roku) -> '08.10.2026 22:01'."""
+    match = re.search(r'(\d{1,2})\.(\d{1,2})\.\s*(\d{1,2}):(\d{2})', text)
+    if not match:
+        return None
+    day, month, hour, minute = (int(g) for g in match.groups())
+    dt = datetime(now.year, month, day, hour, minute)
+    # Přelom roku - měření z prosince čtené v lednu
+    if dt > now.replace(second=0, microsecond=0) and month > now.month:
+        dt = dt.replace(year=now.year - 1)
+    return dt.strftime("%d.%m.%Y %H:%M")
 
-    response = requests.get(PGSONDA_OVERVIEW_URL, timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
+
+def _load_latest(slug: str, now: datetime) -> Dict[str, Any]:
+    """Stáhne poslední řádek tabulky historie sondy (stejný zdroj jako tabulka na pgsonda.cz/<slug>/)."""
+    response = requests.get(PGSONDA_TABLE_URL.format(slug), timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
     if response.status_code != 200:
         raise RuntimeError(f"pgsonda.cz returned status {response.status_code}")
 
-    overview: Dict[str, Dict[str, Any]] = {}
     soup = BeautifulSoup(response.content, 'html.parser')
-    for row in soup.find_all('tr'):
-        columns = row.find_all('td')
-        link = row.find('a')
-        if len(columns) < 6 or link is None:
-            continue
+    table = soup.find('table')
+    if table is None:
+        return {}
 
-        # Sloupce: název | vítr průměr | vítr max | směr | teplota | vlhkost ("---" = neměří)
-        slug = str(link.get('href', '')).rstrip('/').rsplit('/', 1)[-1]
-        icon = row.find('img')
-        overview[slug] = {
-            "online": icon is not None and 'online' in str(icon.get('alt', '')).lower(),
-            "temperature": extract_num(columns[4].text),
-            "humidity": extract_num(columns[5].text),
-            "wind": extract_num(columns[1].text),
-            "wind_gust": extract_num(columns[2].text),
-            "wind_direction": extract_num(columns[3].text),
-        }
+    rows = table.find_all('tr')
+    if len(rows) < 2:
+        return {}
 
-    _overview_cache = overview
-    return overview
+    # Sloupce se u sond liší (např. Lopeník má navíc min. vítr), proto mapujeme podle hlavičky
+    keys = [_header_key(th) for th in rows[0].find_all('th')]
+    values = [td.get_text(strip=True) for td in rows[1].find_all('td')]
+
+    data: Dict[str, Any] = {}
+    for key, value in zip(keys, values):
+        if key == "time":
+            data["time"] = _parse_time(value, now)
+        elif key:
+            data[key] = extract_num(value)
+    return data
 
 
 def get_pgsonda_data(slug: str, peak: str, code: str) -> Optional[dict]:
-    """Get data for one probe from the pgsonda.cz overview table."""
+    """Get latest data for one probe from pgsonda.cz."""
     if not config.SOURCES.get(code, True):
         return None
 
-    # Tabulka neobsahuje čas měření - použijeme aktuální čas v ČR
+    now = _utc_to_prague_local(datetime.utcnow())
     result = {
         "code": code,
         "peak": peak,
-        "time": _utc_to_prague_local(datetime.utcnow()).strftime("%d.%m.%Y %H:%M"),
+        "time": now.strftime("%d.%m.%Y %H:%M"),
         "temperature": None,
         "humidity": None,
         "wind": None,
@@ -64,11 +87,9 @@ def get_pgsonda_data(slug: str, peak: str, code: str) -> Optional[dict]:
     }
 
     try:
-        station = _load_overview().get(slug)
-        # Sonda offline / v servisu ukazuje staré nebo nulové hodnoty - necháme null
-        if station and station["online"]:
-            for key in ("temperature", "humidity", "wind", "wind_gust", "wind_direction"):
-                result[key] = station[key]
+        for key, value in _load_latest(slug, now).items():
+            if value is not None:
+                result[key] = value
     except Exception:
         # Při chybě necháme hodnoty jako None, ale vrchol v JSONu ponecháme
         pass
