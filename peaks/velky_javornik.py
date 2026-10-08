@@ -3,7 +3,7 @@ import re
 from typing import Any
 from bs4 import BeautifulSoup
 from datetime import datetime
-from utils import extract_num, normalize_text
+from utils import extract_num, normalize_text, prague_now_str
 import config
 from .constants import VELKY_JAVORNIK_API_SOURCE_URL, VELKY_JAVORNIK_PREVIEW_URL
 
@@ -119,7 +119,7 @@ def get_velky_javornik_data():
 
         # When we don't have time, use current
         if not result["time"]:
-            result["time"] = datetime.now().strftime("%d.%m.%Y %H:%M")
+            result["time"] = prague_now_str()
 
         # Check if we have at least temperature
         if result["temperature"] is not None:
@@ -134,7 +134,7 @@ def get_velky_javornik_data():
     return {
         "code": normalize_text("Velký Javorník"),
         "peak": "Velký Javorník",
-        "time": datetime.now().strftime("%d.%m.%Y %H:%M"),
+        "time": prague_now_str(),
         "temperature": None,
         "precipitation": None,
         "preview_url": VELKY_JAVORNIK_PREVIEW_URL,

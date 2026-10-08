@@ -1,8 +1,9 @@
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional, Dict, Any
 
 import config
+from utils import utc_to_prague_local
 from .constants import (
     CHMI_SOURCE_URL,
     FRENSTAT_WSI, FRENSTAT_PREVIEW_URL,
@@ -24,35 +25,6 @@ ELEMENTS = {
 }
 
 
-def _last_sunday_of_month(year: int, month: int) -> datetime:
-    # Find last day of month then step back to Sunday (weekday: Mon=0..Sun=6)
-    if month == 12:
-        first_next_month = datetime(year + 1, 1, 1)
-    else:
-        first_next_month = datetime(year, month + 1, 1)
-    last_day = first_next_month - timedelta(days=1)
-    days_back = (last_day.weekday() + 1) % 7
-    return last_day - timedelta(days=days_back)
-
-
-def _utc_to_prague_local(utc_dt: datetime) -> datetime:
-    """
-    Convert UTC datetime to Europe/Prague local time without external tz database.
-    EU DST rules:
-    - DST starts: last Sunday in March at 01:00 UTC (offset becomes +2)
-    - DST ends:   last Sunday in October at 01:00 UTC (offset becomes +1)
-    """
-    year = utc_dt.year
-    dst_start_date = _last_sunday_of_month(year, 3)   # date of last Sunday in March
-    dst_end_date = _last_sunday_of_month(year, 10)    # date of last Sunday in October
-
-    dst_start_utc = datetime(year, 3, dst_start_date.day, 1, 0, 0)  # 01:00 UTC
-    dst_end_utc = datetime(year, 10, dst_end_date.day, 1, 0, 0)     # 01:00 UTC
-
-    offset_hours = 2 if dst_start_utc <= utc_dt < dst_end_utc else 1
-    return utc_dt + timedelta(hours=offset_hours)
-
-
 def get_chmi_data(wsi: str, peak: str, code: str, preview_url: str) -> Optional[dict]:
     """Get data from one CHMI station via open data API (10min data)."""
     if not config.SOURCES.get(code, True):
@@ -62,7 +34,7 @@ def get_chmi_data(wsi: str, peak: str, code: str, preview_url: str) -> Optional[
     result: Dict[str, Any] = {
         "code": code,
         "peak": peak,
-        "time": _utc_to_prague_local(now_utc).strftime("%d.%m.%Y %H:%M"),
+        "time": utc_to_prague_local(now_utc).strftime("%d.%m.%Y %H:%M"),
         "temperature": None,
         "preview_url": preview_url,
     }
@@ -97,7 +69,7 @@ def get_chmi_data(wsi: str, peak: str, code: str, preview_url: str) -> Optional[
             try:
                 # newest_dt je v UTC, převedeme na lokální čas v ČR (CET/CEST)
                 dt_utc = datetime.strptime(newest_dt, "%Y-%m-%dT%H:%M:%SZ")
-                result["time"] = _utc_to_prague_local(dt_utc).strftime("%d.%m.%Y %H:%M")
+                result["time"] = utc_to_prague_local(dt_utc).strftime("%d.%m.%Y %H:%M")
             except ValueError:
                 pass
 

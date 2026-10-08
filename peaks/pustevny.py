@@ -1,7 +1,7 @@
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from utils import normalize_text
+from utils import normalize_text, prague_now_str
 import config
 from .constants import PUSTEVNY_SOURCE_URL, PUSTEVNY_PREVIEW_URL
 
@@ -17,7 +17,7 @@ def get_pustevny_data():
     # Default values - při chybě zdroje zůstanou null, ale vrchol v JSONu ponecháme
     temperature = None
     humidity = None
-    time = datetime.now().strftime("%d.%m.%Y %H:%M")
+    time = prague_now_str()
 
     try:
         url = PUSTEVNY_SOURCE_URL
