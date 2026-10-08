@@ -127,8 +127,15 @@ def get_velky_javornik_data():
             result_clean = {k: v for k, v in result.items() if v is not None}
             result_clean["preview_url"] = VELKY_JAVORNIK_PREVIEW_URL
             return result_clean
-
-        return None
-
     except Exception:
-        return None
+        pass
+
+    # Bez dat - vrchol v JSONu ponecháme s hodnotami null
+    return {
+        "code": normalize_text("Velký Javorník"),
+        "peak": "Velký Javorník",
+        "time": datetime.now().strftime("%d.%m.%Y %H:%M"),
+        "temperature": None,
+        "precipitation": None,
+        "preview_url": VELKY_JAVORNIK_PREVIEW_URL,
+    }

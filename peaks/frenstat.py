@@ -115,11 +115,8 @@ def get_frenstat_data() -> Optional[dict]:
         "preview_url": FRENSTAT_PREVIEW_URL,
     }
 
-    if humidity is not None:
-        result["humidity"] = humidity
-    if precipitation is not None:
-        result["precipitation"] = precipitation
-    if wind is not None:
-        result["wind"] = wind
+    result["humidity"] = humidity
+    result["precipitation"] = precipitation
+    result["wind"] = wind
 
     return result

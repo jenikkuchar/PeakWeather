@@ -9,24 +9,28 @@ def get_pustevny_data():
     """Get data from Pustevny - using XML source"""
     if not config.SOURCES["pustevny"]:
         return None
-        
+
+    # Name and code of the peak
+    peak = "Pustevny"
+    code = normalize_text(peak)
+
+    # Default values - při chybě zdroje zůstanou null, ale vrchol v JSONu ponecháme
+    temperature = None
+    humidity = None
+    time = datetime.now().strftime("%d.%m.%Y %H:%M")
+
     try:
         url = PUSTEVNY_SOURCE_URL
         response = requests.get(url, timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
 
         if response.status_code != 200:
-            return None
+            raise RuntimeError(f"Pustevny returned status {response.status_code}")
 
         # Parsing XML
         root = ET.fromstring(response.content)
 
         # Setting namespace for XML
         namespace = {'th2e': 'http://www.papouch.com/xml/th2e/act'}
-
-        # Finding sensor data in XML
-        temperature = None
-        humidity = None
-        time = None
 
         # Find sensor with id=1 for temperature
         temp_sensor = root.find(".//th2e:sns[@id='1']", namespace)
@@ -52,21 +56,15 @@ def get_pustevny_data():
                     dt = datetime.strptime(time_str, "%m/%d/%Y %H:%M:%S")
                     time = dt.strftime("%d.%m.%Y %H:%M")
                 except ValueError:
-                    time = datetime.now().strftime("%d.%m.%Y %H:%M")
-        else:
-            time = datetime.now().strftime("%d.%m.%Y %H:%M")
-
-        # Name and code of the peak
-        peak = "Pustevny"
-        code = normalize_text(peak)
-
-        return {
-            "code": code,
-            "peak": peak,
-            "time": time,
-            "temperature": temperature,
-            "humidity": humidity,
-            "preview_url": PUSTEVNY_PREVIEW_URL,
-        }
+                    pass
     except Exception:
-        return None
+        pass
+
+    return {
+        "code": code,
+        "peak": peak,
+        "time": time,
+        "temperature": temperature,
+        "humidity": humidity,
+        "preview_url": PUSTEVNY_PREVIEW_URL,
+    }
