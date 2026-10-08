@@ -22,4 +22,5 @@ SOURCES = {
     "radejov": True,
     "ondrejnik": True,  # pgsonda.cz
     "velky_lopenik": True,  # pgsonda.cz
+    "cerna_hora": True,  # pgsonda.cz
 }
