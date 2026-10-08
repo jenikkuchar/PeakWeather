@@ -5,6 +5,10 @@ on:
     - cron: '*/15 * * * *'  # Spouští se každých 15 minut
   workflow_dispatch:  # Umožňuje manuální spuštění
 
+# Souběžné běhy čekají ve frontě, aby si nepřepisovaly push
+concurrency:
+  group: generate-data
+
 jobs:
   generate-data:
     runs-on: ubuntu-latest
@@ -36,6 +40,8 @@ jobs:
         git add data/peakweather.json
         # Pokračuje i když nejsou změny (git commit by jinak selhal)
         git commit -m "Aktualizace dat o počasí $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
-        git push
+        # Mezitím mohl na main přibýt jiný commit (jiný běh, merge PR)
+        git pull --rebase -X theirs origin main
+        git push origin HEAD:main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
