@@ -13,7 +13,7 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "08.10.2026 19:25",
+    "time": "08.10.2026 19:31",
     "temperature": null,
     "humidity": null,
     "preview_url": "https://pustevny.cz/pocasi/"
@@ -35,16 +35,6 @@
     "humidity": 62.0,
     "precipitation": 0.0,
     "wind": 1.6
-  },
-  {
-    "code": "straznice",
-    "peak": "Radějov",
-    "time": "08.10.2026 20:50",
-    "temperature": 16.9,
-    "preview_url": "https://www.chmi.cz/w/b7rade01-radejov",
-    "humidity": 66.0,
-    "precipitation": 0.0,
-    "wind": 0.9
   },
   {
     "code": "radejov",
