@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 import config
 from peaks import get_lysa_hora_data, get_pustevny_data, get_velky_javornik_data, get_frenstat_data, get_radejov_data
-from peaks import get_ondrejnik_data, get_velky_lopenik_data
+from peaks import get_ondrejnik_data, get_velky_lopenik_data, get_cerna_hora_data
 
 def ensure_output_dir():
     """Zajistí existenci adresáře pro výstupní JSON soubory"""
@@ -55,6 +55,10 @@ def main():
     velky_lopenik = get_velky_lopenik_data()
     if velky_lopenik:
         data.append(velky_lopenik)
+
+    cerna_hora = get_cerna_hora_data()
+    if cerna_hora:
+        data.append(cerna_hora)
 
     # Zápis dat do JSON souboru
     if data:

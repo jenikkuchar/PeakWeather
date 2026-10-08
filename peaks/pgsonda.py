@@ -103,3 +103,7 @@ def get_ondrejnik_data() -> Optional[dict]:
 
 def get_velky_lopenik_data() -> Optional[dict]:
     return get_pgsonda_data("velkylopenik", "Velký Lopeník", "velky_lopenik")
+
+
+def get_cerna_hora_data() -> Optional[dict]:
+    return get_pgsonda_data("cernabeskydy", "Černá hora", "cerna_hora")
