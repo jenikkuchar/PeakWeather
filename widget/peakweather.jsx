@@ -2,7 +2,7 @@
 // Zobrazuje aktuální počasí z vrcholů Beskyd a okolí z data/peakweather.json.
 // Instalace: zkopíruj soubor do složky widgetů Übersichtu (menu → Open Widgets Folder).
 
-import { run } from "uebersicht";
+import { run, React } from "uebersicht";
 
 const DATA_URL =
   "https://raw.githubusercontent.com/jenikkuchar/PeakWeather/main/data/peakweather.json";
@@ -190,7 +190,6 @@ export const className = `
   .footer {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     gap: 6px;
     margin: 6px 10px 2px;
     padding-top: 8px;
@@ -198,6 +197,9 @@ export const className = `
     font-size: 10.5px;
     color: #7c8394;
     font-variant-numeric: tabular-nums;
+  }
+  .footer .next {
+    margin-right: auto;
   }
   .footer .dot.old {
     background: #ef4444;
@@ -507,16 +509,33 @@ const parseUpdated = (text) => {
   }
 };
 
+// Odpočet do dalšího načtení dat widgetem, přepočítává se každých 30 s
+const Countdown = ({ nextAt }) => {
+  const [, setTick] = React.useState(0);
+  React.useEffect(() => {
+    const timer = setInterval(() => setTick((t) => t + 1), 30 * 1000);
+    return () => clearInterval(timer);
+  }, [nextAt]);
+
+  const minutes = Math.ceil((nextAt - Date.now()) / 60000);
+  return <span className="next">{minutes > 0 ? `další za ${minutes} min` : "načítám…"}</span>;
+};
+
 const Footer = ({ updated, now }) => {
-  if (!updated) return null;
-  const minutes = (now - updated) / 60000;
+  const nextAt = now.getTime() + refreshFrequency;
+  const minutes = updated ? (now - updated) / 60000 : Infinity;
   const status =
     minutes <= FOOTER_OK_MINUTES ? "" : minutes <= FOOTER_STALE_MINUTES ? "stale" : "old";
 
   return (
     <div className="footer">
-      <span className={`dot ${status}`} />
-      aktualizováno {formatTime(updated, now)}
+      <Countdown nextAt={nextAt} />
+      {updated && (
+        <>
+          <span className={`dot ${status}`} />
+          aktualizováno {formatTime(updated, now)}
+        </>
+      )}
     </div>
   );
 };
