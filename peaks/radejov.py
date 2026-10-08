@@ -12,7 +12,7 @@ if __package__ is None or __name__ == "__main__":
         sys.path.insert(0, project_root)
 
 import config
-from .constants import STRAZNICE_SOURCE_URL, STRAZNICE_PREVIEW_URL
+from .constants import RADEJOV_SOURCE_URL, RADEJOV_PREVIEW_URL
 
 
 def _last_sunday_of_month(year: int, month: int) -> datetime:
@@ -37,13 +37,13 @@ def _utc_to_prague_local(utc_dt: datetime) -> datetime:
     return utc_dt + timedelta(hours=offset_hours)
 
 
-def get_straznice_data() -> Optional[dict]:
+def get_radejov_data() -> Optional[dict]:
     """Get data from CHMI Radějov (nástupce stanice Strážnice) via open data API (10min data)."""
-    if not config.SOURCES.get("straznice", True):
+    if not config.SOURCES.get("radejov", True):
         return None
 
     peak = "Radějov"
-    code = "straznice"
+    code = "radejov"
 
     time_value: str = datetime.now().strftime("%d.%m.%Y %H:%M")
     temperature: Optional[float] = None
@@ -51,12 +51,12 @@ def get_straznice_data() -> Optional[dict]:
     precipitation: Optional[float] = None
     wind: Optional[float] = None
 
-    preview_url = STRAZNICE_PREVIEW_URL
+    preview_url = RADEJOV_PREVIEW_URL
 
     try:
         today_str = datetime.now().strftime("%Y%m%d")
-        url = STRAZNICE_SOURCE_URL.format(today_str)
-        preview_url = STRAZNICE_PREVIEW_URL
+        url = RADEJOV_SOURCE_URL.format(today_str)
+        preview_url = RADEJOV_PREVIEW_URL
 
         response = requests.get(url, timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
         if response.status_code != 200:
