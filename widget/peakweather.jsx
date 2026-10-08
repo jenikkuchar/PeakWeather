@@ -28,8 +28,8 @@ const FOOTER_STALE_MINUTES = 60;
 // Parametr t obchází cache GitHubu (jinak se data mění až po ~5 minutách)
 export const command = `curl -sf --max-time 15 "${DATA_URL}?t=$(date +%s)"; echo "${SEPARATOR}"; curl -sf --max-time 15 "${COMMITS_URL}"`;
 
-// 5 minut – workflow data aktualizuje každých 15 minut
-export const refreshFrequency = 5 * 60 * 1000;
+// 15 minut – stejně často workflow aktualizuje data
+export const refreshFrequency = 15 * 60 * 1000;
 
 export const className = `
   top: 20px;
