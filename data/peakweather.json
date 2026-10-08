@@ -60,12 +60,12 @@
   {
     "code": "cerna_hora",
     "peak": "Černá hora",
-    "time": "08.10.2026 22:39",
+    "time": "08.10.2026 22:40",
     "temperature": 14.1,
-    "humidity": 67.0,
+    "humidity": 68.0,
     "wind": 0.0,
-    "wind_gust": 1.0,
-    "wind_direction": 275.0,
+    "wind_gust": 0.0,
+    "wind_direction": 284.0,
     "preview_url": "https://pgsonda.cz/cernabeskydy/"
   },
   {
@@ -93,7 +93,7 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "08.10.2026 20:39",
+    "time": "08.10.2026 20:40",
     "temperature": null,
     "humidity": null,
     "preview_url": "https://pustevny.cz/pocasi/"
