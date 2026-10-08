@@ -14,8 +14,19 @@ const STALE_MINUTES = 60;
 const LAT = 49.5;
 const LON = 18.2;
 
+// Čas posledního commitu s daty = čas aktualizace (GitHub API, bez přihlášení 60 dotazů/h)
+const COMMITS_URL =
+  "https://api.github.com/repos/jenikkuchar/PeakWeather/commits?path=data/peakweather.json&per_page=1";
+
+// Oddělovač mezi daty a odpovědí GitHub API ve výstupu příkazu
+const SEPARATOR = "@@PEAKWEATHER@@";
+
+// Stáří aktualizace v patičce: zelená do 30 min, oranžová do 60 min, pak červená
+const FOOTER_OK_MINUTES = 30;
+const FOOTER_STALE_MINUTES = 60;
+
 // Parametr t obchází cache GitHubu (jinak se data mění až po ~5 minutách)
-export const command = `curl -sf --max-time 15 "${DATA_URL}?t=$(date +%s)"`;
+export const command = `curl -sf --max-time 15 "${DATA_URL}?t=$(date +%s)"; echo "${SEPARATOR}"; curl -sf --max-time 15 "${COMMITS_URL}"`;
 
 // 5 minut – workflow data aktualizuje každých 15 minut
 export const refreshFrequency = 5 * 60 * 1000;
@@ -174,6 +185,23 @@ export const className = `
   .temp.missing {
     font-size: 22px;
     color: #4b5160;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin: 6px 10px 2px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 10.5px;
+    color: #7c8394;
+    font-variant-numeric: tabular-nums;
+  }
+  .footer .dot.old {
+    background: #ef4444;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.7);
   }
 
   .error {
@@ -469,10 +497,36 @@ const Peak = ({ peak, now }) => {
   );
 };
 
+// Čas aktualizace z odpovědi GitHub API (poslední commit s daty)
+const parseUpdated = (text) => {
+  try {
+    const date = new Date(JSON.parse(text)[0].commit.committer.date);
+    return Number.isNaN(date.getTime()) ? null : date;
+  } catch (e) {
+    return null;
+  }
+};
+
+const Footer = ({ updated, now }) => {
+  if (!updated) return null;
+  const minutes = (now - updated) / 60000;
+  const status =
+    minutes <= FOOTER_OK_MINUTES ? "" : minutes <= FOOTER_STALE_MINUTES ? "stale" : "old";
+
+  return (
+    <div className="footer">
+      <span className={`dot ${status}`} />
+      aktualizováno {formatTime(updated, now)}
+    </div>
+  );
+};
+
 export const render = ({ output, error }) => {
+  const [dataText, commitsText = ""] = (output || "").split(SEPARATOR);
+
   let peaks = null;
   try {
-    peaks = JSON.parse(output);
+    peaks = JSON.parse(dataText);
   } catch (e) {
     peaks = null;
   }
@@ -486,11 +540,20 @@ export const render = ({ output, error }) => {
   // Pořadí je dané daty, vrcholy bez dat jdou na konec
   const sorted = [...peaks].sort((a, b) => !isNum(a.temperature) - !isNum(b.temperature));
 
+  // Bez odpovědi GitHub API (např. vyčerpaný limit) použijeme nejnovější čas měření
+  const newestMeasurement = peaks
+    .filter((peak) => isNum(peak.temperature))
+    .map((peak) => parseTime(peak.time))
+    .filter(Boolean)
+    .sort((a, b) => b - a)[0];
+  const updated = parseUpdated(commitsText) || newestMeasurement || null;
+
   return (
     <div>
       {sorted.map((peak) => (
         <Peak key={peak.code} peak={peak} now={now} />
       ))}
+      <Footer updated={updated} now={now} />
     </div>
   );
 };
