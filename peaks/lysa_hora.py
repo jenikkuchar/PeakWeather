@@ -2,6 +2,7 @@ import os
 import sys
 import requests  # pyright: ignore[reportMissingModuleSource]
 import re
+from datetime import datetime
 from bs4 import BeautifulSoup  # pyright: ignore[reportMissingModuleSource]
 
 # Ensure project root is on sys.path when running this file directly
@@ -19,19 +20,36 @@ def get_lysa_hora_data():
     """Get data from Lysá hora"""
     if not config.SOURCES["lysa_hora"]:
         return None
-        
+
+    # Name and code of the peak
+    peak = "Lysá hora"
+    code = normalize_text(peak)
+
+    # Default values - při chybě zdroje zůstanou null, ale vrchol v JSONu ponecháme
+    result = {
+        "code": code,
+        "peak": peak,
+        "time": datetime.now().strftime("%d.%m.%Y %H:%M"),
+        "temperature": None,
+        "humidity": None,
+        "wind": None,
+        "wind_gust": None,
+        "details": None,
+        "preview_url": LYSA_HORA_PREVIEW_URL,
+    }
+
     try:
         url = LYSA_HORA_SOURCE_URL
         response = requests.get(url, timeout=config.DEFAULT_TIMEOUT, headers=config.HEADERS)
 
         if response.status_code != 200:
-            return None
+            return result
 
         soup = BeautifulSoup(response.content, 'html.parser')
         table = soup.find('table', class_='tabTyp3')
 
         if not table:
-            return None
+            return result
 
         rows = table.find_all('tr')[1:]
         data_row = None
@@ -44,7 +62,7 @@ def get_lysa_hora_data():
                 break
 
         if not data_row:
-            return None
+            return result
 
         # Processing date and time
         date_time_text = data_row[0].text.strip()
@@ -53,24 +71,16 @@ def get_lysa_hora_data():
         if date_time_parts:
             date_part = date_time_parts.group(1)
             time_part = date_time_parts.group(2)[:5]
-            time = f"{date_part} {time_part}"
+            result["time"] = f"{date_part} {time_part}"
         else:
-            time = date_time_text
+            result["time"] = date_time_text
 
-        # Name and code of the peak
-        peak = "Lysá hora"
-        code = normalize_text(peak)
-
-        return {
-            "code": code,
-            "peak": peak,
-            "time": time,
-            "temperature": extract_num(data_row[1].text),
-            "humidity": extract_num(data_row[2].text),
-            "wind": extract_num(data_row[4].text),
-            "wind_gust": extract_num(data_row[5].text),
-            "details": data_row[8].text.strip(),
-            "preview_url": LYSA_HORA_PREVIEW_URL,
-        }
+        result["temperature"] = extract_num(data_row[1].text)
+        result["humidity"] = extract_num(data_row[2].text)
+        result["wind"] = extract_num(data_row[4].text)
+        result["wind_gust"] = extract_num(data_row[5].text)
+        result["details"] = data_row[8].text.strip()
     except Exception:
-        return None
+        pass
+
+    return result
