@@ -46,6 +46,8 @@ def main():
     straznice = get_straznice_data()
     if straznice:
         data.append(straznice)
+        # Radějov je nástupce Strážnice - stejná data pod vlastním kódem
+        data.append({**straznice, "code": "radejov"})
 
     # Zápis dat do JSON souboru
     if data:

@@ -11,7 +11,6 @@ if __package__ is None or __name__ == "__main__":
     if project_root not in sys.path:
         sys.path.insert(0, project_root)
 
-from utils import normalize_text
 import config
 from .constants import STRAZNICE_SOURCE_URL, STRAZNICE_PREVIEW_URL
 
@@ -39,12 +38,12 @@ def _utc_to_prague_local(utc_dt: datetime) -> datetime:
 
 
 def get_straznice_data() -> Optional[dict]:
-    """Get data from CHMI Strážnice via open data API (10min data)."""
+    """Get data from CHMI Radějov (nástupce stanice Strážnice) via open data API (10min data)."""
     if not config.SOURCES.get("straznice", True):
         return None
 
-    peak = "Strážnice"
-    code = normalize_text(peak)
+    peak = "Radějov"
+    code = "straznice"
 
     time_value: str = datetime.now().strftime("%d.%m.%Y %H:%M")
     temperature: Optional[float] = None

@@ -12,7 +12,7 @@ VELKY_JAVORNIK_PREVIEW_URL = "https://www.pod.cz/portal/Srazky/cz/smartphone/Mer
 FRENSTAT_SOURCE_URL = "https://opendata.chmi.cz/meteorology/climate/now/data/10m-0-203-0-11785-{}.json"
 FRENSTAT_PREVIEW_URL = "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM"
 
-# CHMI Strážnice
+# CHMI Strážnice -> od 16. 9. 2026 přesunuto do Radějova (B7RADE01)
 # {date} ve formátu YYYYMMDD, např. 20260227
-STRAZNICE_SOURCE_URL = "https://opendata.chmi.cz/meteorology/climate/now/data/10m-0-203-0-11755-{}.json"
-STRAZNICE_PREVIEW_URL = "https://www.chmi.cz/namerena-data/merici-stanice/meteorologicke/b1strz01-straznice?zalozka=klima&c=48.8992,17.3381,11&l=kraje,teplota,ZTM"
+STRAZNICE_SOURCE_URL = "https://opendata.chmi.cz/meteorology/climate/now/data/10m-0-203-0-41302058001-{}.json"
+STRAZNICE_PREVIEW_URL = "https://www.chmi.cz/w/b7rade01-radejov"
