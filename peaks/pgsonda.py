@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from utils import extract_num
 import config
 from .constants import PGSONDA_TABLE_URL
-from .frenstat import _utc_to_prague_local
+from .chmi import _utc_to_prague_local
 
 
 def _header_key(th) -> Optional[str]:
