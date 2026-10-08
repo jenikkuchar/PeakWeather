@@ -20,6 +20,6 @@ SOURCES = {
     "velky_javornik_api": False,  # Zdroj pro API pgsonda.cz
     "frenstat": True,
     "radejov": True,
-    "ondrejnik": True,  # XContest Wind API
-    "velky_lopenik": True,  # XContest Wind API
+    "ondrejnik": True,  # pgsonda.cz
+    "velky_lopenik": True,  # pgsonda.cz
 }
