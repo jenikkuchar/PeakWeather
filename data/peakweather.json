@@ -13,7 +13,7 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "08.10.2026 20:25",
+    "time": "08.10.2026 20:27",
     "temperature": null,
     "humidity": null,
     "preview_url": "https://pustevny.cz/pocasi/"
@@ -34,7 +34,10 @@
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
     "humidity": 73.0,
     "precipitation": 0.1,
-    "wind": 1.3
+    "wind": 1.3,
+    "wind_gust": 3.7,
+    "wind_direction": 215.0,
+    "sunshine": 0.0
   },
   {
     "code": "radejov",
@@ -44,7 +47,10 @@
     "preview_url": "https://www.chmi.cz/w/b7rade01-radejov",
     "humidity": 68.0,
     "precipitation": 0.0,
-    "wind": 3.7
+    "wind": 3.7,
+    "wind_gust": 8.4,
+    "wind_direction": 253.0,
+    "sunshine": 0.0
   },
   {
     "code": "ondrejnik",
@@ -60,23 +66,23 @@
   {
     "code": "velky_lopenik",
     "peak": "Velký Lopeník",
-    "time": "08.10.2026 22:25",
+    "time": "08.10.2026 22:26",
     "temperature": 11.1,
     "humidity": 100.0,
-    "wind": 6.8,
-    "wind_gust": 11.5,
-    "wind_direction": 295.0,
+    "wind": 6.2,
+    "wind_gust": 9.4,
+    "wind_direction": 302.0,
     "preview_url": "https://pgsonda.cz/velkylopenik/"
   },
   {
     "code": "cerna_hora",
     "peak": "Černá hora",
-    "time": "08.10.2026 22:24",
+    "time": "08.10.2026 22:27",
     "temperature": 14.2,
-    "humidity": 67.0,
-    "wind": 0.4,
-    "wind_gust": 1.6,
-    "wind_direction": 235.0,
+    "humidity": 66.0,
+    "wind": 0.6,
+    "wind_gust": 1.3,
+    "wind_direction": 255.0,
     "preview_url": "https://pgsonda.cz/cernabeskydy/"
   }
 ]
