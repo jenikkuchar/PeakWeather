@@ -60,12 +60,12 @@
   {
     "code": "cerna_hora",
     "peak": "Černá hora",
-    "time": "08.10.2026 22:44",
+    "time": "08.10.2026 22:45",
     "temperature": 14.1,
     "humidity": 68.0,
-    "wind": 1.1,
+    "wind": 0.7,
     "wind_gust": 1.3,
-    "wind_direction": 291.0,
+    "wind_direction": 293.0,
     "preview_url": "https://pgsonda.cz/cernabeskydy/"
   },
   {
@@ -82,18 +82,18 @@
   {
     "code": "velky_lopenik",
     "peak": "Velký Lopeník",
-    "time": "08.10.2026 22:45",
-    "temperature": 10.6,
+    "time": "08.10.2026 22:46",
+    "temperature": 10.5,
     "humidity": 100.0,
-    "wind": 8.3,
-    "wind_gust": 12.9,
-    "wind_direction": 303.0,
+    "wind": 7.8,
+    "wind_gust": 14.7,
+    "wind_direction": 298.0,
     "preview_url": "https://pgsonda.cz/velkylopenik/"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "08.10.2026 22:44",
+    "time": "08.10.2026 22:45",
     "temperature": null,
     "humidity": null,
     "preview_url": "https://pustevny.cz/pocasi/"
