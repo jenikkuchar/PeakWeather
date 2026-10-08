@@ -7,8 +7,8 @@ import { run } from "uebersicht";
 const DATA_URL =
   "https://raw.githubusercontent.com/jenikkuchar/PeakWeather/main/data/peakweather.json";
 
-// Data starší než tolik minut se označí jako neaktuální
-const STALE_MINUTES = 90;
+// Data starší než tolik minut se označí jako neaktuální (oranžová tečka)
+const STALE_MINUTES = 60;
 
 // Poloha pro výpočet dne/noci (Beskydy)
 const LAT = 49.5;
@@ -483,9 +483,12 @@ export const render = ({ output, error }) => {
     return <div className="error">Data se nepodařilo načíst{error ? `: ${error}` : ""}</div>;
   }
 
+  // Pořadí je dané daty, vrcholy bez dat jdou na konec
+  const sorted = [...peaks].sort((a, b) => !isNum(a.temperature) - !isNum(b.temperature));
+
   return (
     <div>
-      {peaks.map((peak) => (
+      {sorted.map((peak) => (
         <Peak key={peak.code} peak={peak} now={now} />
       ))}
     </div>

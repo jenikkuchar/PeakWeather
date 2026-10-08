@@ -2,7 +2,8 @@ import json
 import os
 from datetime import datetime
 import config
-from peaks import get_lysa_hora_data, get_pustevny_data, get_velky_javornik_data, get_frenstat_data, get_radejov_data
+from peaks import get_lysa_hora_data, get_pustevny_data, get_velky_javornik_data
+from peaks import get_frenstat_data, get_radejov_data, get_zlin_data
 from peaks import get_ondrejnik_data, get_velky_lopenik_data, get_cerna_hora_data
 
 def ensure_output_dir():
@@ -25,40 +26,24 @@ def write_json_output(data, filename="peakweather.json"):
     return filepath
 
 def main():
-    data = []
+    # Pořadí vrcholů ve výstupu
+    sources = [
+        get_frenstat_data,
+        get_radejov_data,
+        get_zlin_data,
+        get_velky_javornik_data,
+        get_lysa_hora_data,
+        get_pustevny_data,
+        get_cerna_hora_data,
+        get_ondrejnik_data,
+        get_velky_lopenik_data,
+    ]
 
-    # Získání dat ze všech zdrojů
-    lysa_hora = get_lysa_hora_data()
-    if lysa_hora:
-        data.append(lysa_hora)
+    # Získání dat ze všech zdrojů (vypnuté zdroje vrací None)
+    data = [peak for peak in (get_data() for get_data in sources) if peak]
 
-    pustevny = get_pustevny_data()
-    if pustevny:
-        data.append(pustevny)
-
-    velky_javornik = get_velky_javornik_data()
-    if velky_javornik:
-        data.append(velky_javornik)
-
-    frenstat = get_frenstat_data()
-    if frenstat:
-        data.append(frenstat)
-
-    radejov = get_radejov_data()
-    if radejov:
-        data.append(radejov)
-
-    ondrejnik = get_ondrejnik_data()
-    if ondrejnik:
-        data.append(ondrejnik)
-
-    velky_lopenik = get_velky_lopenik_data()
-    if velky_lopenik:
-        data.append(velky_lopenik)
-
-    cerna_hora = get_cerna_hora_data()
-    if cerna_hora:
-        data.append(cerna_hora)
+    # Vrcholy bez dat (bez teploty) přesuneme na konec, jinak pořadí zůstává
+    data.sort(key=lambda peak: peak.get("temperature") is None)
 
     # Zápis dat do JSON souboru
     if data:
