@@ -58,6 +58,9 @@ def get_frenstat_data() -> Optional[dict]:
     humidity: Optional[float] = None
     precipitation: Optional[float] = None
     wind: Optional[float] = None
+    wind_gust: Optional[float] = None
+    wind_direction: Optional[float] = None
+    sunshine: Optional[float] = None
 
     try:
         # Vytvoření URL pro dnešní datum (YYYYMMDD)
@@ -71,7 +74,8 @@ def get_frenstat_data() -> Optional[dict]:
         payload: Dict[str, Any] = response.json()
         values = payload.get("data", {}).get("data", {}).get("values", [])
 
-        target_elements = {"F", "H", "SRA10M", "T"}
+        # F = vítr, Fmax = nárazy, D = směr větru, SSV10M = sluneční svit za 10 min (minuty)
+        target_elements = {"F", "Fmax", "D", "H", "SRA10M", "SSV10M", "T"}
         latest: Dict[str, Dict[str, Any]] = {}
 
         for row in values:
@@ -102,6 +106,9 @@ def get_frenstat_data() -> Optional[dict]:
             float(latest["SRA10M"]["val"]) if "SRA10M" in latest and latest["SRA10M"]["val"] is not None else None
         )
         wind = float(latest["F"]["val"]) if "F" in latest and latest["F"]["val"] is not None else None
+        wind_gust = float(latest["Fmax"]["val"]) if "Fmax" in latest and latest["Fmax"]["val"] is not None else None
+        wind_direction = float(latest["D"]["val"]) if "D" in latest and latest["D"]["val"] is not None else None
+        sunshine = float(latest["SSV10M"]["val"]) if "SSV10M" in latest and latest["SSV10M"]["val"] is not None else None
 
     except Exception:
         # Při chybě necháme hodnoty jako None, ale vrchol v JSONu ponecháme
@@ -118,5 +125,8 @@ def get_frenstat_data() -> Optional[dict]:
     result["humidity"] = humidity
     result["precipitation"] = precipitation
     result["wind"] = wind
+    result["wind_gust"] = wind_gust
+    result["wind_direction"] = wind_direction
+    result["sunshine"] = sunshine
 
     return result
