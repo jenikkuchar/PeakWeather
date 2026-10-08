@@ -2,12 +2,12 @@
   {
     "code": "lysa_hora",
     "peak": "Lysá hora",
-    "time": "08.10.2026 20:00",
-    "temperature": 9.9,
-    "humidity": 85.0,
-    "wind": 12.0,
-    "wind_gust": 16.0,
-    "details": "obloha beze změn",
+    "time": "08.10.2026 21:00",
+    "temperature": 10.1,
+    "humidity": 87.0,
+    "wind": 10.0,
+    "wind_gust": 15.1,
+    "details": "",
     "preview_url": "https://www.lysahora.cz/pocasi.phtml"
   },
   {
