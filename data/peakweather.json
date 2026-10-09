@@ -82,18 +82,18 @@
   {
     "code": "velky_lopenik",
     "peak": "Velký Lopeník",
-    "time": "09.10.2026 09:31",
+    "time": "09.10.2026 09:33",
     "temperature": 3.7,
     "humidity": 100.0,
-    "wind": 4.7,
-    "wind_gust": 6.9,
-    "wind_direction": 298.0,
+    "wind": 3.9,
+    "wind_gust": 9.3,
+    "wind_direction": 309.0,
     "preview_url": "https://pgsonda.cz/velkylopenik/"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "09.10.2026 09:31",
+    "time": "09.10.2026 09:33",
     "temperature": null,
     "humidity": null,
     "preview_url": "https://pustevny.cz/pocasi/"
