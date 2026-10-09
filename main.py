@@ -2,7 +2,7 @@ import json
 import os
 from datetime import datetime
 import config
-from utils import weather_condition
+from utils import weather_condition, wind_level
 from peaks import get_lysa_hora_data, get_pustevny_data, get_velky_javornik_data
 from peaks import get_frenstat_data, get_radejov_data, get_zlin_data
 from peaks import get_ondrejnik_data, get_velky_lopenik_data, get_cerna_hora_data
@@ -38,6 +38,7 @@ FIELDS = [
     "wind",
     "wind_gust",
     "wind_direction",
+    "wind_level",
     "sunshine",
     "cloud_cover",
     "condition",
@@ -51,6 +52,7 @@ def normalize_peak(peak):
     if result["temperature"] is not None:
         # ČHMÚ udává srážky za 10 minut, ostatní zdroje za hodinu
         result["condition"] = weather_condition(result, peak.get("precipitation_minutes", 60))
+    result["wind_level"] = wind_level(result)
     return result
 
 def main():

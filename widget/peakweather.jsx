@@ -151,6 +151,18 @@ export const className = `
     width: 11px;
     height: 11px;
   }
+  .chip .bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+    margin-right: 3px;
+  }
+  .chip .bar {
+    width: 4px;
+    border-radius: 1.5px;
+    background: rgba(255, 255, 255, 0.12);
+  }
   .chip.windy {
     background: rgba(245, 158, 11, 0.16);
     color: #fcd34d;
@@ -520,18 +532,32 @@ const WindArrow = ({ direction }) => (
 
 // ---------- komponenty ----------
 
-const Wind = ({ peak }) => {
-  const max = Math.max(isNum(peak.wind) ? peak.wind : 0, isNum(peak.wind_gust) ? peak.wind_gust : 0);
-  const level = max >= 15 ? "storm" : max >= 10 ? "windy" : "";
+// Síla větru z dat (číselník "wind_level"): počet dílků stupnice, popis a barva
+const WIND_LEVELS = {
+  calm: { bars: 1, label: "bezvětří", color: "#7dd3fc", chip: "" },
+  breeze: { bars: 2, label: "mírný vítr", color: "#7dd3fc", chip: "" },
+  windy: { bars: 3, label: "silný vítr", color: "#f59e0b", chip: "windy" },
+  strong: { bars: 4, label: "velmi silný vítr", color: "#fb923c", chip: "windy" },
+  storm: { bars: 5, label: "vichřice", color: "#ef4444", chip: "storm" },
+};
 
-  if (!isNum(peak.wind) && !isNum(peak.wind_gust)) return null;
+const Wind = ({ peak }) => {
+  const level = WIND_LEVELS[peak.wind_level];
+  if (!level) return null;
 
   return (
-    <span className={`chip ${level}`}>
+    <span className={`chip ${level.chip}`}>
       {isNum(peak.wind_direction) && <WindArrow direction={peak.wind_direction} />}
-      {isNum(peak.wind) ? fmt(peak.wind) : "–"}
-      {isNum(peak.wind_gust) && <span className="muted">/ {fmt(peak.wind_gust)}</span>}
-      <span className="muted">m/s</span>
+      <span className="bars">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <span
+            key={i}
+            className="bar"
+            style={{ height: 4 + i * 1.6, background: i <= level.bars ? level.color : undefined }}
+          />
+        ))}
+      </span>
+      {level.label}
     </span>
   );
 };
