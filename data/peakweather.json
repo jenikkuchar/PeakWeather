@@ -41,7 +41,7 @@
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "09.10.2026 08:10",
+    "time": "09.10.2026 08:30",
     "temperature": 4.0,
     "precipitation": 0.0,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -60,8 +60,8 @@
   {
     "code": "cerna_hora",
     "peak": "Černá hora",
-    "time": "09.10.2026 08:29",
-    "temperature": 4.2,
+    "time": "09.10.2026 08:44",
+    "temperature": 4.6,
     "humidity": 89.0,
     "wind": 0.0,
     "wind_gust": 0.0,
@@ -71,29 +71,29 @@
   {
     "code": "ondrejnik",
     "peak": "Ondřejník",
-    "time": "09.10.2026 08:26",
+    "time": "09.10.2026 08:37",
     "temperature": 24.0,
     "humidity": 40.0,
-    "wind": 1.8,
-    "wind_gust": 5.6,
-    "wind_direction": 243.0,
+    "wind": 2.0,
+    "wind_gust": 5.7,
+    "wind_direction": 238.0,
     "preview_url": "https://pgsonda.cz/ondrejnik/"
   },
   {
     "code": "velky_lopenik",
     "peak": "Velký Lopeník",
-    "time": "09.10.2026 08:30",
-    "temperature": 3.3,
+    "time": "09.10.2026 08:45",
+    "temperature": 3.2,
     "humidity": 100.0,
-    "wind": 5.0,
-    "wind_gust": 8.8,
-    "wind_direction": 310.0,
+    "wind": 4.2,
+    "wind_gust": 6.1,
+    "wind_direction": 308.0,
     "preview_url": "https://pgsonda.cz/velkylopenik/"
   },
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "09.10.2026 08:31",
+    "time": "09.10.2026 08:45",
     "temperature": null,
     "humidity": null,
     "preview_url": "https://pustevny.cz/pocasi/"
