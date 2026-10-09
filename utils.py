@@ -81,13 +81,57 @@ def sun_elevation(utc_dt, lat=49.5, lon=18.2):
     return 90 - math.degrees(math.acos(max(-1.0, min(1.0, cos_zenith))))
 
 
-# Číselník stavu počasí (atribut "condition")
-CONDITIONS = ("clear", "partly_cloudy", "cloudy", "fog", "rain", "snow", "storm")
+# Číselník stavu počasí (atribut "condition"), popis v README.md
+CONDITIONS = (
+    "clear", "mostly_clear", "partly_cloudy", "mostly_cloudy", "cloudy",
+    "mist", "fog",
+    "drizzle", "light_rain", "rain", "heavy_rain", "showers",
+    "sleet", "light_snow", "snow", "heavy_snow",
+    "storm",
+)
+
+# Intenzita srážek (mm/h): do 0,5 mrholení, do 2,5 slabý, do 8 mírný, nad 8 silný
+DRIZZLE_MM_H = 0.5
+LIGHT_MM_H = 2.5
+HEAVY_MM_H = 8.0
 
 
-def weather_condition(peak):
+def _precipitation_condition(intensity, text, temperature):
+    """Druh a intenzita srážek z popisu a/nebo naměřeného úhrnu (mm/h)."""
+    snowy = re.search(r"sníh|sněž", text)
+    mixed = re.search(r"se sněhem|sněhem s deštěm|déšť a sníh", text)
+    cold = temperature is not None and temperature <= 0.5
+
+    if mixed:
+        return "sleet"
+    if snowy or (cold and not re.search(r"déšť|dešť|mrhol", text)):
+        if re.search(r"slab|neměřiteln", text) or (intensity is not None and intensity < LIGHT_MM_H):
+            return "light_snow"
+        if re.search(r"siln|vydatn|hust", text) or (intensity is not None and intensity >= HEAVY_MM_H):
+            return "heavy_snow"
+        return "snow"
+    if re.search(r"přeháň", text):
+        return "showers"
+    if re.search(r"mrhol|neměřiteln", text):
+        return "drizzle"
+    if re.search(r"siln|vydatn|přívalov", text):
+        return "heavy_rain"
+    if re.search(r"slab", text):
+        return "light_rain"
+    if intensity is not None:
+        if intensity < DRIZZLE_MM_H:
+            return "drizzle"
+        if intensity < LIGHT_MM_H:
+            return "light_rain"
+        if intensity >= HEAVY_MM_H:
+            return "heavy_rain"
+    return "rain"
+
+
+def weather_condition(peak, precipitation_minutes=60):
     """
     Odhadne stav počasí z dostupných údajů vrcholu (popis, srážky, oblačnost, vlhkost).
+    precipitation_minutes = za jak dlouhý interval zdroj udává srážky (ČHMÚ 10 min).
     Vrací hodnotu z CONDITIONS, nebo None, když o počasí nic nevíme.
     """
     text = (peak.get("details") or "").lower()
@@ -95,27 +139,38 @@ def weather_condition(peak):
     precipitation = peak.get("precipitation")
     cloud_cover = peak.get("cloud_cover")
     humidity = peak.get("humidity")
-    cold = temperature is not None and temperature <= 0.5
 
     if re.search(r"bouř", text):
         return "storm"
-    if re.search(r"sníh|sněž", text):
-        return "snow"
-    if (precipitation is not None and precipitation > 0) or re.search(r"déšť|dešť|mrhol|přeháň|srážk", text):
-        return "snow" if cold else "rain"
-    if re.search(r"mlh|kouřmo", text) or cloud_cover == 9:
-        return "fog"
+
+    intensity = None
+    if precipitation is not None and precipitation > 0:
+        intensity = precipitation * 60 / precipitation_minutes
+    if intensity is not None or re.search(r"déšť|dešť|mrhol|přeháň|srážk|sníh|sněž", text):
+        return _precipitation_condition(intensity, text, temperature)
+
+    if re.search(r"mlh|kouřmo|opar", text) or cloud_cover == 9:
+        # Slabá mlha / opar (dohlednost nad 500 m) vs. mlha
+        return "mist" if re.search(r"slab|opar|kouřmo", text) else "fog"
 
     # Oblačnost v osminách (Horská služba, u ČHMÚ odhad ze slunečního svitu)
     if cloud_cover is not None:
-        if cloud_cover <= 2:
+        if cloud_cover <= 1:
             return "clear"
-        if cloud_cover <= 6:
+        if cloud_cover <= 3:
+            return "mostly_clear"
+        if cloud_cover <= 5:
             return "partly_cloudy"
+        if cloud_cover <= 7:
+            return "mostly_cloudy"
         return "cloudy"
 
-    if re.search(r"polojasno|oblačno", text):
+    if re.search(r"skoro jasno", text):
+        return "mostly_clear"
+    if re.search(r"polojasno", text):
         return "partly_cloudy"
+    if re.search(r"oblačno", text):
+        return "mostly_cloudy"
     if re.search(r"jasno", text):
         return "clear"
     if re.search(r"zataž", text):

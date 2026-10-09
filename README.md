@@ -82,15 +82,26 @@ Vrcholy bez teploty jsou na konci seznamu.
 
 | Hodnota | Význam | Odvozeno z |
 |---|---|---|
-| `clear` | jasno | oblačnost do 2/8, popis „jasno“ |
-| `partly_cloudy` | polojasno | oblačnost 3–6/8, popis „polojasno“, „oblačno“ |
-| `cloudy` | zataženo | oblačnost 7–8/8, popis „zataženo“ |
+| `clear` | jasno | oblačnost 0–1/8, popis „jasno“ |
+| `mostly_clear` | skoro jasno | oblačnost 2–3/8, popis „skoro jasno“ |
+| `partly_cloudy` | polojasno | oblačnost 4–5/8, popis „polojasno“ |
+| `mostly_cloudy` | oblačno | oblačnost 6–7/8, popis „oblačno“ |
+| `cloudy` | zataženo | oblačnost 8/8, popis „zataženo“ |
+| `mist` | slabá mlha, opar | popis „slabá mlha“, „opar“, „kouřmo“ |
 | `fog` | mlha | popis „mlha“, oblačnost 9/8 (oblohu nelze rozeznat), vlhkost ≥ 99 % |
-| `rain` | déšť | srážky > 0 mm, popis „déšť“, „mrholení“, „přeháňky“ |
-| `snow` | sníh | popis „sníh“, srážky při teplotě do 0,5 °C |
+| `drizzle` | mrholení | srážky do 0,5 mm/h, popis „mrholení“, „neměřitelné množství“ |
+| `light_rain` | slabý déšť | srážky 0,5–2,5 mm/h, popis „slabý déšť“ |
+| `rain` | déšť | srážky 2,5–8 mm/h, popis „déšť“ |
+| `heavy_rain` | silný déšť | srážky nad 8 mm/h, popis „silný“, „vydatný“, „přívalový“ |
+| `showers` | přeháňky | popis „přeháňky“ |
+| `sleet` | déšť se sněhem | popis „déšť se sněhem“ |
+| `light_snow` | slabé sněžení | popis „slabé sněžení“, srážky do 2,5 mm/h při teplotě do 0,5 °C |
+| `snow` | sněžení | popis „sníh“, „sněžení“, srážky při teplotě do 0,5 °C |
+| `heavy_snow` | silné sněžení | popis „silné sněžení“, srážky nad 8 mm/h při teplotě do 0,5 °C |
 | `storm` | bouřka | popis „bouřka“ |
 
-Pořadí v tabulce odspodu nahoru určuje přednost: např. déšť má přednost před mlhou a oblačností.
+Přednost: bouřka → srážky → mlha → oblačnost → slovní popis oblačnosti → vlhkost.
+Intenzita srážek se přepočítává na mm/h (ČHMÚ udává úhrn za 10 minut, ostatní zdroje za hodinu).
 
 ## Struktura projektu
 

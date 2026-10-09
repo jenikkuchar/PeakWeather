@@ -141,6 +141,8 @@ def get_chmi_data(wsi: str, gh_id: str, peak: str, code: str, preview_url: str) 
         "time": utc_to_prague_local(now_utc).strftime("%d.%m.%Y %H:%M"),
         "temperature": None,
         "preview_url": preview_url,
+        # Interní údaj pro výpočet intenzity srážek (do exportu se nezapisuje)
+        "precipitation_minutes": 10,
     }
     for key in ELEMENTS.values():
         result.setdefault(key, None)
