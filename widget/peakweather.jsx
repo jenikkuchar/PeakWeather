@@ -408,17 +408,31 @@ const icons = {
       </g>
     </g>
   ),
-  // Obecná ikona, když o oblačnosti nic nevíme
-  generic: () => (
-    <g>
-      <path d="M2 27L12 11l5 7 3-4 10 13z" fill="#64748b" />
-      <path d="M12 11l3.2 4.5-2 1.5-1.2-2-1.5 2-1.7-1.2z" fill="#e2e8f0" />
-    </g>
-  ),
+  // Obecná ikona, když o oblačnosti nic nevíme: teploměr se sloupcem podle teploty
+  generic: (temperature) => {
+    const hasTemp = isNum(temperature);
+    // -20 °C = prázdný, 35 °C = plný sloupec (y 22 -> 6)
+    const ratio = hasTemp ? Math.max(0, Math.min(1, (temperature + 20) / 55)) : 0;
+    const top = 22 - ratio * 16;
+    const color = hasTemp ? tempColor(temperature) : "#4b5160";
+    return (
+      <g>
+        <rect x="12.5" y="3" width="7" height="22" rx="3.5" fill="rgba(255,255,255,0.08)" />
+        <circle cx="16" cy="24.5" r="5.5" fill="rgba(255,255,255,0.08)" />
+        <rect x="14.5" y={top} width="3" height={24 - top} rx="1.5" fill={color} />
+        <circle cx="16" cy="24.5" r="3.5" fill={color} />
+        <g stroke="rgba(255,255,255,0.25)" strokeWidth="1" strokeLinecap="round">
+          <line x1="21.5" y1="8" x2="23.5" y2="8" />
+          <line x1="21.5" y1="12" x2="23" y2="12" />
+          <line x1="21.5" y1="16" x2="23.5" y2="16" />
+        </g>
+      </g>
+    );
+  },
 };
 
-const WeatherIcon = ({ type }) => (
-  <svg viewBox="0 0 32 32">{(icons[type] || icons.generic)()}</svg>
+const WeatherIcon = ({ type, temperature }) => (
+  <svg viewBox="0 0 32 32">{(icons[type] || icons.generic)(temperature)}</svg>
 );
 
 // Šipka ukazuje, kam vítr fouká (směr v datech je odkud fouká)
@@ -456,7 +470,7 @@ const Peak = ({ peak, now }) => {
   return (
     <div className={`peak ${status === "offline" ? "offline" : ""}`} onClick={() => openUrl(peak.preview_url)}>
       <div className="icon">
-        <WeatherIcon type={condition} />
+        <WeatherIcon type={condition} temperature={peak.temperature} />
       </div>
 
       <div className="info">
