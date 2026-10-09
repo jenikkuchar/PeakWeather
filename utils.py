@@ -181,3 +181,27 @@ def weather_condition(peak, precipitation_minutes=60):
         return "fog"
 
     return None
+
+
+# Síla větru (atribut "wind_level"), přibližně podle Beaufortovy stupnice
+WIND_LEVELS = ("calm", "breeze", "windy", "strong", "storm")
+
+# (úroveň, průměrný vítr od m/s, nárazy od m/s) - od nejsilnější
+_WIND_THRESHOLDS = (
+    ("storm", 20.0, 25.0),
+    ("strong", 14.0, 17.0),
+    ("windy", 8.0, 12.0),
+    ("breeze", 3.0, 6.0),
+)
+
+
+def wind_level(peak):
+    """Síla větru z průměrného větru a nárazů. Vrací hodnotu z WIND_LEVELS, nebo None bez dat."""
+    wind = peak.get("wind")
+    gust = peak.get("wind_gust")
+    if wind is None and gust is None:
+        return None
+    for level, wind_from, gust_from in _WIND_THRESHOLDS:
+        if (wind is not None and wind >= wind_from) or (gust is not None and gust >= gust_from):
+            return level
+    return "calm"

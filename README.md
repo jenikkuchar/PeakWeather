@@ -70,6 +70,7 @@ co daný zdroj neměří nebo se nepodařilo načíst, je `null`.
 | `wind` | Průměrná rychlost větru (m/s) |
 | `wind_gust` | Nárazy větru (m/s) |
 | `wind_direction` | Směr, odkud vítr fouká (°, 0 = sever) |
+| `wind_level` | Síla větru podle číselníku níže, odvozená z větru a nárazů |
 | `sunshine` | Sluneční svit za posledních 10 min (minuty, 0–10) |
 | `cloud_cover` | Celková oblačnost v osminách (0–8, 9 = oblohu nelze rozeznat); u stanic ČHMÚ odhad ze slunečního svitu (jen přes den) |
 | `condition` | Stav počasí podle číselníku níže, odvozený z ostatních údajů; `null` = nevíme |
@@ -102,6 +103,18 @@ Vrcholy bez teploty jsou na konci seznamu.
 
 Přednost: bouřka → srážky → mlha → oblačnost → slovní popis oblačnosti → vlhkost.
 Intenzita srážek se přepočítává na mm/h (ČHMÚ udává úhrn za 10 minut, ostatní zdroje za hodinu).
+
+### Číselník `wind_level`
+
+| Hodnota | Význam | Průměrný vítr | nebo nárazy |
+|---|---|---|---|
+| `calm` | bezvětří, vánek | do 3 m/s | do 6 m/s |
+| `breeze` | mírný vítr | od 3 m/s | od 6 m/s |
+| `windy` | silný vítr | od 8 m/s | od 12 m/s |
+| `strong` | velmi silný vítr | od 14 m/s | od 17 m/s |
+| `storm` | vichřice | od 20 m/s | od 25 m/s |
+
+Rozhoduje silnější z obou kritérií. Bez údajů o větru je `null`.
 
 ## Struktura projektu
 
