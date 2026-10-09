@@ -261,21 +261,34 @@ const sunElevation = (date) => {
 // Ikona podle stavu počasí z dat (číselník "condition"), v noci varianta s měsícem
 const getIcon = (peak, date) => {
   const night = sunElevation(date || new Date()) < -0.8;
-  switch (peak.condition) {
-    case "clear":
-      return night ? "night" : "sun";
-    case "partly_cloudy":
-      return night ? "partlyNight" : "partly";
-    case "cloudy":
-      return "cloud";
-    case "fog":
-    case "rain":
-    case "snow":
-    case "storm":
-      return peak.condition;
-    default:
-      return "generic";
-  }
+  // Stavy, které mají noční variantu s měsícem
+  const nightVariants = {
+    clear: "night",
+    mostly_clear: "mostlyClearNight",
+    partly_cloudy: "partlyNight",
+    showers: "showersNight",
+  };
+  const dayIcons = {
+    clear: "sun",
+    mostly_clear: "mostlyClear",
+    partly_cloudy: "partly",
+    mostly_cloudy: "mostlyCloudy",
+    cloudy: "cloud",
+    mist: "mist",
+    fog: "fog",
+    drizzle: "drizzle",
+    light_rain: "lightRain",
+    rain: "rain",
+    heavy_rain: "heavyRain",
+    showers: "showers",
+    sleet: "sleet",
+    light_snow: "lightSnow",
+    snow: "snow",
+    heavy_snow: "heavySnow",
+    storm: "storm",
+  };
+  if (night && nightVariants[peak.condition]) return nightVariants[peak.condition];
+  return dayIcons[peak.condition] || "generic";
 };
 
 const openUrl = (url) => {
@@ -328,19 +341,22 @@ const MoonShape = ({ x = 0, y = 0, s = 1 }) => (
   />
 );
 
-const Drops = ({ color = RAIN }) => (
-  <g stroke={color} strokeWidth="2" strokeLinecap="round">
-    <line x1="11" y1="26" x2="9.5" y2="29.5" />
-    <line x1="16.5" y1="26" x2="15" y2="29.5" />
-    <line x1="22" y1="26" x2="20.5" y2="29.5" />
+// Kapky deště: počet 1-5, short = mrholení (krátké tečky)
+const DROP_X = { 1: [16], 2: [12.5, 19.5], 3: [10, 16, 22], 4: [8.5, 13.5, 18.5, 23.5], 5: [7, 11.5, 16, 20.5, 25] };
+const Drops = ({ count = 3, short = false, color = RAIN }) => (
+  <g stroke={color} strokeWidth={short ? 2.2 : 2} strokeLinecap="round">
+    {DROP_X[count].map((x, i) => (
+      <line key={i} x1={x + 1} y1={26 + (i % 2)} x2={short ? x + 0.6 : x - 0.8} y2={short ? 27 + (i % 2) : 30 + (i % 2)} />
+    ))}
   </g>
 );
 
-const Flakes = () => (
+// Vločky: počet 1-5
+const Flakes = ({ count = 3 }) => (
   <g fill={SNOW}>
-    <circle cx="10" cy="28" r="1.6" />
-    <circle cx="16" cy="29.5" r="1.6" />
-    <circle cx="22" cy="28" r="1.6" />
+    {DROP_X[count].map((x, i) => (
+      <circle key={i} cx={x} cy={28 + (i % 2) * 1.6} r="1.6" />
+    ))}
   </g>
 );
 
@@ -359,28 +375,104 @@ const icons = {
       <CloudShape x={4} y={6} s={0.9} />
     </g>
   ),
+  mostlyClear: () => (
+    <g>
+      <SunShape cx={14} cy={13} r={5.5} />
+      <CloudShape x={10} y={11} s={0.6} />
+    </g>
+  ),
+  mostlyClearNight: () => (
+    <g>
+      <MoonShape x={0} y={0} s={0.85} />
+      <CloudShape x={10} y={11} s={0.6} />
+    </g>
+  ),
+  mostlyCloudy: () => (
+    <g>
+      <SunShape cx={21} cy={9} r={3.5} />
+      <CloudShape fill={CLOUD_DARK} x={6} y={-1} s={0.75} />
+      <CloudShape x={0} y={4} />
+    </g>
+  ),
   cloud: () => (
     <g>
       <CloudShape fill={CLOUD_DARK} x={6} y={-2} s={0.75} />
       <CloudShape x={0} y={4} />
     </g>
   ),
+  drizzle: () => (
+    <g>
+      <CloudShape x={0} y={-2} />
+      <Drops count={3} short />
+    </g>
+  ),
+  lightRain: () => (
+    <g>
+      <CloudShape x={0} y={-2} />
+      <Drops count={2} />
+    </g>
+  ),
   rain: () => (
     <g>
       <CloudShape x={0} y={-2} />
-      <Drops />
+      <Drops count={3} />
+    </g>
+  ),
+  heavyRain: () => (
+    <g>
+      <CloudShape fill={CLOUD_DARK} x={0} y={-2} />
+      <Drops count={5} />
+    </g>
+  ),
+  showers: () => (
+    <g>
+      <SunShape cx={11} cy={9} r={4} />
+      <CloudShape x={3} y={-1} s={0.9} />
+      <Drops count={2} />
+    </g>
+  ),
+  showersNight: () => (
+    <g>
+      <MoonShape x={-3} y={-4} s={0.65} />
+      <CloudShape x={3} y={-1} s={0.9} />
+      <Drops count={2} />
+    </g>
+  ),
+  sleet: () => (
+    <g>
+      <CloudShape x={0} y={-2} />
+      <line x1="12" y1="26" x2="10.5" y2="29.5" stroke={RAIN} strokeWidth="2" strokeLinecap="round" />
+      <circle cx="20" cy="28" r="1.6" fill={SNOW} />
+    </g>
+  ),
+  lightSnow: () => (
+    <g>
+      <CloudShape x={0} y={-2} />
+      <Flakes count={2} />
     </g>
   ),
   snow: () => (
     <g>
       <CloudShape x={0} y={-2} />
-      <Flakes />
+      <Flakes count={3} />
+    </g>
+  ),
+  heavySnow: () => (
+    <g>
+      <CloudShape fill={CLOUD_DARK} x={0} y={-2} />
+      <Flakes count={5} />
     </g>
   ),
   storm: () => (
     <g>
       <CloudShape fill={CLOUD_DARK} x={0} y={-3} />
       <path d="M17 19l-4 6h3.5l-2 6 6-8h-3.5l2-4z" fill={BOLT} />
+    </g>
+  ),
+  mist: () => (
+    <g opacity="0.85">
+      <CloudShape x={0} y={-4} />
+      <line x1="8" y1="25" x2="24" y2="25" stroke={CLOUD} strokeWidth="2" strokeLinecap="round" />
     </g>
   ),
   fog: () => (

@@ -49,7 +49,8 @@ def normalize_peak(peak):
     """Doplní chybějící atributy jako null, prázdné texty převede na null, doplní stav počasí"""
     result = {field: (peak.get(field) if peak.get(field) != "" else None) for field in FIELDS}
     if result["temperature"] is not None:
-        result["condition"] = weather_condition(result)
+        # ČHMÚ udává srážky za 10 minut, ostatní zdroje za hodinu
+        result["condition"] = weather_condition(result, peak.get("precipitation_minutes", 60))
     return result
 
 def main():
