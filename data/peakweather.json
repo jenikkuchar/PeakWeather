@@ -2,7 +2,7 @@
   {
     "code": "velky_javornik",
     "peak": "Velký Javorník",
-    "time": "09.10.2026 02:30",
+    "time": "09.10.2026 02:40",
     "temperature": 6.0,
     "precipitation": 0.3,
     "preview_url": "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
@@ -21,40 +21,40 @@
   {
     "code": "cerna_hora",
     "peak": "Černá hora",
-    "time": "09.10.2026 02:45",
-    "temperature": 6.4,
+    "time": "09.10.2026 03:01",
+    "temperature": 6.5,
     "humidity": 86.0,
     "wind": 0.0,
     "wind_gust": 0.0,
-    "wind_direction": 155.0,
+    "wind_direction": 25.0,
     "preview_url": "https://pgsonda.cz/cernabeskydy/"
   },
   {
     "code": "ondrejnik",
     "peak": "Ondřejník",
-    "time": "09.10.2026 02:42",
-    "temperature": 5.5,
-    "humidity": 89.0,
-    "wind": 2.1,
-    "wind_gust": 5.2,
-    "wind_direction": 347.0,
+    "time": "09.10.2026 02:53",
+    "temperature": 24.0,
+    "humidity": 40.0,
+    "wind": 1.5,
+    "wind_gust": 5.1,
+    "wind_direction": 345.0,
     "preview_url": "https://pgsonda.cz/ondrejnik/"
   },
   {
     "code": "velky_lopenik",
     "peak": "Velký Lopeník",
-    "time": "09.10.2026 02:45",
-    "temperature": 5.2,
+    "time": "09.10.2026 03:00",
+    "temperature": 5.1,
     "humidity": 100.0,
-    "wind": 8.1,
-    "wind_gust": 13.7,
-    "wind_direction": 318.0,
+    "wind": 6.7,
+    "wind_gust": 12.4,
+    "wind_direction": 316.0,
     "preview_url": "https://pgsonda.cz/velkylopenik/"
   },
   {
     "code": "frenstat",
     "peak": "Frenštát",
-    "time": "09.10.2026 02:45",
+    "time": "09.10.2026 03:01",
     "temperature": null,
     "preview_url": "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM",
     "humidity": null,
@@ -67,7 +67,7 @@
   {
     "code": "radejov",
     "peak": "Radějov",
-    "time": "09.10.2026 02:45",
+    "time": "09.10.2026 03:01",
     "temperature": null,
     "preview_url": "https://www.chmi.cz/w/b7rade01-radejov",
     "humidity": null,
@@ -80,7 +80,7 @@
   {
     "code": "zlin",
     "peak": "Zlín",
-    "time": "09.10.2026 02:45",
+    "time": "09.10.2026 03:01",
     "temperature": null,
     "preview_url": "https://www.chmi.cz/w/b1zlin01-zlin",
     "humidity": null,
@@ -93,7 +93,7 @@
   {
     "code": "pustevny",
     "peak": "Pustevny",
-    "time": "09.10.2026 02:45",
+    "time": "09.10.2026 03:01",
     "temperature": null,
     "humidity": null,
     "preview_url": "https://pustevny.cz/pocasi/"
