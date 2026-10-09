@@ -159,11 +159,6 @@ export const className = `
     background: rgba(239, 68, 68, 0.18);
     color: #fca5a5;
   }
-  .details {
-    margin-top: 4px;
-    font-size: 11px;
-    color: #8a90a0;
-  }
 
   .temp {
     flex: none;
@@ -263,43 +258,24 @@ const sunElevation = (date) => {
   return 90 - Math.acos(Math.max(-1, Math.min(1, cosZenith))) / rad;
 };
 
-// Odhad počasí z dostupných dat. Vrací typ ikony.
-const getCondition = (peak, date) => {
-  const text = (peak.details || "").toLowerCase();
+// Ikona podle stavu počasí z dat (číselník "condition"), v noci varianta s měsícem
+const getIcon = (peak, date) => {
   const night = sunElevation(date || new Date()) < -0.8;
-  const cold = isNum(peak.temperature) && peak.temperature <= 0.5;
-
-  if (/bouř/.test(text)) return "storm";
-  if (/sníh|sněž/.test(text)) return "snow";
-  if ((isNum(peak.precipitation) && peak.precipitation > 0) || /déšť|dešť|mrhol|přeháň|srážk/.test(text)) {
-    return cold ? "snow" : "rain";
+  switch (peak.condition) {
+    case "clear":
+      return night ? "night" : "sun";
+    case "partly_cloudy":
+      return night ? "partlyNight" : "partly";
+    case "cloudy":
+      return "cloud";
+    case "fog":
+    case "rain":
+    case "snow":
+    case "storm":
+      return peak.condition;
+    default:
+      return "generic";
   }
-  if (/mlh|kouřmo/.test(text)) return "fog";
-
-  // Sluneční svit za posledních 10 minut (stanice ČHMÚ)
-  if (isNum(peak.sunshine)) {
-    if (night) return "night";
-    if (peak.sunshine >= 7) return "sun";
-    if (peak.sunshine >= 2) return "partly";
-    return "cloud";
-  }
-
-  // Oblačnost v osminách (Horská služba), 9 = oblohu nelze rozeznat
-  if (isNum(peak.cloud_cover)) {
-    if (peak.cloud_cover > 8) return "fog";
-    if (peak.cloud_cover <= 2) return night ? "night" : "sun";
-    if (peak.cloud_cover <= 6) return night ? "partlyNight" : "partly";
-    return "cloud";
-  }
-
-  if (/jasno/.test(text)) return night ? "night" : "sun";
-  if (/polojasno|oblač/.test(text)) return night ? "partlyNight" : "partly";
-  if (/zataž/.test(text)) return "cloud";
-
-  // Vrchol v oblaku
-  if (isNum(peak.humidity) && peak.humidity >= 99) return "fog";
-
-  return "generic";
 };
 
 const openUrl = (url) => {
@@ -473,7 +449,7 @@ const Peak = ({ peak, now }) => {
   const hasTemp = isNum(peak.temperature);
   const ageMinutes = date ? (now - date) / 60000 : Infinity;
   const status = !hasTemp ? "offline" : ageMinutes > STALE_MINUTES ? "stale" : "";
-  const condition = hasTemp ? getCondition(peak, date) : "generic";
+  const condition = hasTemp ? getIcon(peak, date) : "generic";
 
   return (
     <div className={`peak ${status === "offline" ? "offline" : ""}`} onClick={() => openUrl(peak.preview_url)}>
@@ -506,7 +482,6 @@ const Peak = ({ peak, now }) => {
           )}
         </div>
 
-        {peak.details && <div className="details">{peak.details}</div>}
       </div>
 
       {hasTemp ? (

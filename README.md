@@ -72,10 +72,25 @@ co daný zdroj neměří nebo se nepodařilo načíst, je `null`.
 | `wind_direction` | Směr, odkud vítr fouká (°, 0 = sever) |
 | `sunshine` | Sluneční svit za posledních 10 min (minuty, 0–10) |
 | `cloud_cover` | Celková oblačnost v osminách (0–8, 9 = oblohu nelze rozeznat); u stanic ČHMÚ odhad ze slunečního svitu (jen přes den) |
-| `details` | Slovní popis počasí (mlha, srážky, …) |
+| `condition` | Stav počasí podle číselníku níže, odvozený z ostatních údajů; `null` = nevíme |
+| `details` | Slovní popis počasí ze zdroje (mlha, srážky, …) |
 | `preview_url` | Odkaz na zdrojovou stránku |
 
 Vrcholy bez teploty jsou na konci seznamu.
+
+### Číselník `condition`
+
+| Hodnota | Význam | Odvozeno z |
+|---|---|---|
+| `clear` | jasno | oblačnost do 2/8, popis „jasno“ |
+| `partly_cloudy` | polojasno | oblačnost 3–6/8, popis „polojasno“, „oblačno“ |
+| `cloudy` | zataženo | oblačnost 7–8/8, popis „zataženo“ |
+| `fog` | mlha | popis „mlha“, oblačnost 9/8 (oblohu nelze rozeznat), vlhkost ≥ 99 % |
+| `rain` | déšť | srážky > 0 mm, popis „déšť“, „mrholení“, „přeháňky“ |
+| `snow` | sníh | popis „sníh“, srážky při teplotě do 0,5 °C |
+| `storm` | bouřka | popis „bouřka“ |
+
+Pořadí v tabulce odspodu nahoru určuje přednost: např. déšť má přednost před mlhou a oblačností.
 
 ## Struktura projektu
 

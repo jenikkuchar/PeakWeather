@@ -79,3 +79,50 @@ def sun_elevation(utc_dt, lat=49.5, lon=18.2):
     cos_zenith = (math.sin(lat_rad) * math.sin(decl)
                   + math.cos(lat_rad) * math.cos(decl) * math.cos(hour_angle))
     return 90 - math.degrees(math.acos(max(-1.0, min(1.0, cos_zenith))))
+
+
+# Číselník stavu počasí (atribut "condition")
+CONDITIONS = ("clear", "partly_cloudy", "cloudy", "fog", "rain", "snow", "storm")
+
+
+def weather_condition(peak):
+    """
+    Odhadne stav počasí z dostupných údajů vrcholu (popis, srážky, oblačnost, vlhkost).
+    Vrací hodnotu z CONDITIONS, nebo None, když o počasí nic nevíme.
+    """
+    text = (peak.get("details") or "").lower()
+    temperature = peak.get("temperature")
+    precipitation = peak.get("precipitation")
+    cloud_cover = peak.get("cloud_cover")
+    humidity = peak.get("humidity")
+    cold = temperature is not None and temperature <= 0.5
+
+    if re.search(r"bouř", text):
+        return "storm"
+    if re.search(r"sníh|sněž", text):
+        return "snow"
+    if (precipitation is not None and precipitation > 0) or re.search(r"déšť|dešť|mrhol|přeháň|srážk", text):
+        return "snow" if cold else "rain"
+    if re.search(r"mlh|kouřmo", text) or cloud_cover == 9:
+        return "fog"
+
+    # Oblačnost v osminách (Horská služba, u ČHMÚ odhad ze slunečního svitu)
+    if cloud_cover is not None:
+        if cloud_cover <= 2:
+            return "clear"
+        if cloud_cover <= 6:
+            return "partly_cloudy"
+        return "cloudy"
+
+    if re.search(r"polojasno|oblačno", text):
+        return "partly_cloudy"
+    if re.search(r"jasno", text):
+        return "clear"
+    if re.search(r"zataž", text):
+        return "cloudy"
+
+    # Vrchol v oblaku
+    if humidity is not None and humidity >= 99:
+        return "fog"
+
+    return None

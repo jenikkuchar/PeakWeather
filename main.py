@@ -2,6 +2,7 @@ import json
 import os
 from datetime import datetime
 import config
+from utils import weather_condition
 from peaks import get_lysa_hora_data, get_pustevny_data, get_velky_javornik_data
 from peaks import get_frenstat_data, get_radejov_data, get_zlin_data
 from peaks import get_ondrejnik_data, get_velky_lopenik_data, get_cerna_hora_data
@@ -39,13 +40,17 @@ FIELDS = [
     "wind_direction",
     "sunshine",
     "cloud_cover",
+    "condition",
     "details",
     "preview_url",
 ]
 
 def normalize_peak(peak):
-    """Doplní chybějící atributy jako null, prázdné texty převede na null"""
-    return {field: (peak.get(field) if peak.get(field) != "" else None) for field in FIELDS}
+    """Doplní chybějící atributy jako null, prázdné texty převede na null, doplní stav počasí"""
+    result = {field: (peak.get(field) if peak.get(field) != "" else None) for field in FIELDS}
+    if result["temperature"] is not None:
+        result["condition"] = weather_condition(result)
+    return result
 
 def main():
     # Pořadí vrcholů ve výstupu
