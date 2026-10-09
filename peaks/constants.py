@@ -10,8 +10,12 @@ VELKY_JAVORNIK_PREVIEW_URL = "https://www.pod.cz/portal/Srazky/cz/smartphone/Mer
 # CHMI 10minutová data, {wsi} = WSI stanice (meta1-YYYYMMDD.json), {date} ve formátu YYYYMMDD
 CHMI_SOURCE_URL = "https://opendata.chmi.cz/meteorology/climate/now/data/10m-{wsi}-{date}.json"
 
+# CHMI data-provider (grafy na chmi.cz) - aktuálnější než opendata, {graph} = typ grafu, {station} = GH_ID stanice
+CHMI_GRAPH_URL = "https://data-provider.chmi.cz/api/graphs/graf.meteo-stanice.{graph}/{station}"
+
 # CHMI Frenštát pod Radhoštěm (O1FREN01)
 FRENSTAT_WSI = "0-203-0-11785"
+FRENSTAT_GH_ID = "O1FREN01"
 FRENSTAT_PREVIEW_URL = "https://www.chmi.cz/w/o1fren01-frenstat-pod-radhostem?zalozka=klima&c=49.5411%2C18.2406%2C11&l=kraje%2Cteplota%2CZTM"
 
 # pgsonda.cz - poslední řádek tabulky historie sondy, {} = název sondy z URL (např. ondrejnik)
@@ -19,8 +23,11 @@ PGSONDA_TABLE_URL = "https://pgsonda.cz/meteoweb/get_table.php?limit=1&name={}"
 
 # CHMI Radějov (B7RADE01), od 16. 9. 2026 nástupce stanice Strážnice
 RADEJOV_WSI = "0-203-0-41302058001"
+# Pozor: v data-provideru má Radějov kód B1RADE01 (v metadatech opendata B7RADE01)
+RADEJOV_GH_ID = "B1RADE01"
 RADEJOV_PREVIEW_URL = "https://www.chmi.cz/w/b7rade01-radejov"
 
 # CHMI Zlín (B1ZLIN01)
 ZLIN_WSI = "0-203-0-11775"
+ZLIN_GH_ID = "B1ZLIN01"
 ZLIN_PREVIEW_URL = "https://www.chmi.cz/w/b1zlin01-zlin"
