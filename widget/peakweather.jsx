@@ -586,12 +586,6 @@ const Peak = ({ peak, now }) => {
 
         <div className="stats">
           <Wind peak={peak} />
-          {isNum(peak.humidity) && (
-            <span className="chip">
-              {fmt(peak.humidity, 0)}
-              <span className="muted">%</span>
-            </span>
-          )}
           {isNum(peak.precipitation) && peak.precipitation > 0 && (
             <span className="chip">
               {fmt(peak.precipitation)}
