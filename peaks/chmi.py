@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Optional, Dict, Any
 
 import config
-from utils import utc_to_prague_local
+from utils import sun_elevation, utc_to_prague_local
 from .constants import (
     CHMI_SOURCE_URL, CHMI_GRAPH_URL,
     FRENSTAT_WSI, FRENSTAT_GH_ID, FRENSTAT_PREVIEW_URL,
@@ -48,8 +48,22 @@ def _set_time(result: Dict[str, Any], timestamp: str) -> None:
     try:
         dt_utc = datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
         result["time"] = utc_to_prague_local(dt_utc).strftime("%d.%m.%Y %H:%M")
+        result["_time_utc"] = dt_utc
     except ValueError:
         pass
+
+
+# Pod touto výškou Slunce (°) čidlo svit nezaznamená ani za jasna - oblačnost neodhadujeme
+MIN_SUN_ELEVATION = 10
+
+
+def _estimate_cloud_cover(result: Dict[str, Any]) -> None:
+    """Odhad oblačnosti v osminách ze slunečního svitu (10 min svitu = jasno, 0 min = zataženo)."""
+    measured_at = result.pop("_time_utc", None)
+    sunshine = result.get("sunshine")
+    if sunshine is None or measured_at is None or sun_elevation(measured_at) < MIN_SUN_ELEVATION:
+        return
+    result["cloud_cover"] = round(8 * (1 - min(max(sunshine, 0), 10) / 10))
 
 
 def _latest_graph_point(graph: str, station: str) -> Optional[Dict[str, Any]]:
@@ -131,18 +145,20 @@ def get_chmi_data(wsi: str, gh_id: str, peak: str, code: str, preview_url: str) 
     for key in ELEMENTS.values():
         result.setdefault(key, None)
 
+    loaded = False
     try:
-        if _load_from_data_provider(result, gh_id):
-            return result
+        loaded = _load_from_data_provider(result, gh_id)
     except Exception:
         pass
 
-    try:
-        _load_from_opendata(result, wsi, now_utc)
-    except Exception:
-        # Při chybě necháme hodnoty jako None, ale vrchol v JSONu ponecháme
-        pass
+    if not loaded:
+        try:
+            _load_from_opendata(result, wsi, now_utc)
+        except Exception:
+            # Při chybě necháme hodnoty jako None, ale vrchol v JSONu ponecháme
+            pass
 
+    _estimate_cloud_cover(result)
     return result
 
 

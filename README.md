@@ -71,7 +71,7 @@ co daný zdroj neměří nebo se nepodařilo načíst, je `null`.
 | `wind_gust` | Nárazy větru (m/s) |
 | `wind_direction` | Směr, odkud vítr fouká (°, 0 = sever) |
 | `sunshine` | Sluneční svit za posledních 10 min (minuty, 0–10) |
-| `cloud_cover` | Celková oblačnost v osminách (0–8, 9 = oblohu nelze rozeznat) |
+| `cloud_cover` | Celková oblačnost v osminách (0–8, 9 = oblohu nelze rozeznat); u stanic ČHMÚ odhad ze slunečního svitu (jen přes den) |
 | `details` | Slovní popis počasí (mlha, srážky, …) |
 | `preview_url` | Odkaz na zdrojovou stránku |
 
