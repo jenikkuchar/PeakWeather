@@ -25,6 +25,28 @@ def write_json_output(data, filename="peakweather.json"):
     print(f"Data uložena do: {filepath}")
     return filepath
 
+# Jednotný formát výstupu - každý vrchol má všechny atributy v tomto pořadí,
+# co zdroj neměří, je null (popis atributů v README.md)
+FIELDS = [
+    "code",
+    "peak",
+    "time",
+    "temperature",
+    "humidity",
+    "precipitation",
+    "wind",
+    "wind_gust",
+    "wind_direction",
+    "sunshine",
+    "cloud_cover",
+    "details",
+    "preview_url",
+]
+
+def normalize_peak(peak):
+    """Doplní chybějící atributy jako null, prázdné texty převede na null"""
+    return {field: (peak.get(field) if peak.get(field) != "" else None) for field in FIELDS}
+
 def main():
     # Pořadí vrcholů ve výstupu
     sources = [
@@ -40,7 +62,7 @@ def main():
     ]
 
     # Získání dat ze všech zdrojů (vypnuté zdroje vrací None)
-    data = [peak for peak in (get_data() for get_data in sources) if peak]
+    data = [normalize_peak(peak) for peak in (get_data() for get_data in sources) if peak]
 
     # Vrcholy bez dat (bez teploty) přesuneme na konec, jinak pořadí zůstává
     data.sort(key=lambda peak: peak.get("temperature") is None)

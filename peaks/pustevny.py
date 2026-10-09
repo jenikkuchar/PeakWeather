@@ -56,7 +56,7 @@ def _get_horska_sluzba_data() -> Optional[Dict[str, Any]]:
                 data["wind_gust"] = float(speeds[1].replace(',', '.'))
             first_word = wind_text.split()[0].lower()
             if first_word in WIND_DIRECTIONS:
-                data["wind_direction"] = WIND_DIRECTIONS[first_word]
+                data["wind_direction"] = float(WIND_DIRECTIONS[first_word])
 
     # Celková oblačnost v osminách ("8/8 zataženo"; 9/8 = oblohu nelze rozeznat)
     cloud = re.match(r'\s*(\d)/8', params.get("oblačnost suma", ""))
