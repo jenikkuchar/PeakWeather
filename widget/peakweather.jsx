@@ -284,6 +284,14 @@ const getCondition = (peak, date) => {
     return "cloud";
   }
 
+  // Oblačnost v osminách (Horská služba), 9 = oblohu nelze rozeznat
+  if (isNum(peak.cloud_cover)) {
+    if (peak.cloud_cover > 8) return "fog";
+    if (peak.cloud_cover <= 2) return night ? "night" : "sun";
+    if (peak.cloud_cover <= 6) return night ? "partlyNight" : "partly";
+    return "cloud";
+  }
+
   if (/jasno/.test(text)) return night ? "night" : "sun";
   if (/polojasno|oblač/.test(text)) return night ? "partlyNight" : "partly";
   if (/zataž/.test(text)) return "cloud";

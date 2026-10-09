@@ -54,6 +54,29 @@ Repozitář je nakonfigurován s GitHub Actions, které automaticky spouštějí
 
 Můžete také spustit workflow manuálně přes záložku "Actions" na GitHub.
 
+## Formát dat
+
+`data/peakweather.json` je seznam vrcholů. Každý vrchol má vždy všechny atributy;
+co daný zdroj neměří nebo se nepodařilo načíst, je `null`.
+
+| Atribut | Popis |
+|---|---|
+| `code` | Kód vrcholu (např. `frenstat`) |
+| `peak` | Název vrcholu |
+| `time` | Čas měření v českém čase, `DD.MM.YYYY HH:MM` |
+| `temperature` | Teplota (°C) |
+| `humidity` | Relativní vlhkost (%) |
+| `precipitation` | Srážky (mm) za poslední interval zdroje |
+| `wind` | Průměrná rychlost větru (m/s) |
+| `wind_gust` | Nárazy větru (m/s) |
+| `wind_direction` | Směr, odkud vítr fouká (°, 0 = sever) |
+| `sunshine` | Sluneční svit za posledních 10 min (minuty, 0–10) |
+| `cloud_cover` | Celková oblačnost v osminách (0–8, 9 = oblohu nelze rozeznat); u stanic ČHMÚ odhad ze slunečního svitu (jen přes den) |
+| `details` | Slovní popis počasí (mlha, srážky, …) |
+| `preview_url` | Odkaz na zdrojovou stránku |
+
+Vrcholy bez teploty jsou na konci seznamu.
+
 ## Struktura projektu
 
 - `config.py`: Konfigurační soubor

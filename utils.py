@@ -1,3 +1,4 @@
+import math
 import re
 import unicodedata
 from datetime import datetime, timedelta
@@ -61,3 +62,20 @@ def utc_to_prague_local(utc_dt: datetime) -> datetime:
 def prague_now_str():
     """Aktuální čas v ČR jako 'DD.MM.YYYY HH:MM' (nezávisle na časové zóně serveru)"""
     return utc_to_prague_local(datetime.utcnow()).strftime("%d.%m.%Y %H:%M")
+
+
+def sun_elevation(utc_dt, lat=49.5, lon=18.2):
+    """Výška Slunce nad obzorem ve stupních (zjednodušený výpočet NOAA), výchozí poloha Beskydy"""
+    day = utc_dt.timetuple().tm_yday
+    g = 2 * math.pi / 365 * (day - 1 + (utc_dt.hour - 12) / 24)
+    decl = (0.006918 - 0.399912 * math.cos(g) + 0.070257 * math.sin(g)
+            - 0.006758 * math.cos(2 * g) + 0.000907 * math.sin(2 * g)
+            - 0.002697 * math.cos(3 * g) + 0.00148 * math.sin(3 * g))
+    eq_time = 229.18 * (0.000075 + 0.001868 * math.cos(g) - 0.032077 * math.sin(g)
+                        - 0.014615 * math.cos(2 * g) - 0.040849 * math.sin(2 * g))
+    solar_minutes = utc_dt.hour * 60 + utc_dt.minute + eq_time + 4 * lon
+    hour_angle = math.radians(solar_minutes / 4 - 180)
+    lat_rad = math.radians(lat)
+    cos_zenith = (math.sin(lat_rad) * math.sin(decl)
+                  + math.cos(lat_rad) * math.cos(decl) * math.cos(hour_angle))
+    return 90 - math.degrees(math.acos(max(-1.0, min(1.0, cos_zenith))))

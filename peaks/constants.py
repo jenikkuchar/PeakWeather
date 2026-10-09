@@ -3,6 +3,8 @@ LYSA_HORA_PREVIEW_URL = "https://www.lysahora.cz/pocasi.phtml"
 
 PUSTEVNY_SOURCE_URL = "https://www.pustevny.cz/temp/pustevny.xml"
 PUSTEVNY_PREVIEW_URL = "https://pustevny.cz/pocasi/"
+# Záložní zdroj pro Pustevny - aktuální počasí Horské služby
+PUSTEVNY_HS_URL = "https://www.horskasluzba.cz/cz/pocasi-na-horach/pocasi-v-oblastech/beskydy/54-pustevny"
 
 VELKY_JAVORNIK_API_SOURCE_URL = "https://pgsonda.cz/api/api_json_user.php?name=velkyjavornik"
 VELKY_JAVORNIK_PREVIEW_URL = "https://www.pod.cz/portal/Srazky/cz/smartphone/Mereni.aspx?id=300280087&oid=1&fbclid=IwAR3c3Y3EBUDnVefCKkFU4rPv0CVcyR65ArHBsZZnnSwF6EbSevK5-FiMfWk"
