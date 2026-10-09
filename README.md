@@ -54,6 +54,11 @@ Repozitář je nakonfigurován s GitHub Actions, které automaticky spouštějí
 
 Můžete také spustit workflow manuálně přes záložku "Actions" na GitHub.
 
+## Widgety
+
+- `widget/peakweather.jsx` – widget pro [Übersicht](https://tracesof.net/uebersicht/) (macOS). Zkopíruj do složky widgetů (menu → Open Widgets Folder).
+- `widget/peakweather-scriptable.js` – widget pro [Scriptable](https://scriptable.app) (iOS). V aplikaci vytvoř nový skript, vlož kód a přidej na plochu widget Scriptable s tímto skriptem. Malý widget ukáže 3 vrcholy (jen teplotu), střední 3 vrcholy, velký všech 9.
+
 ## Formát dat
 
 `data/peakweather.json` je seznam vrcholů. Každý vrchol má vždy všechny atributy;
