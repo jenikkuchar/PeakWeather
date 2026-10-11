@@ -128,7 +128,7 @@ Rozhoduje silnější z obou kritérií. Bez údajů o větru je `null`.
 - `utils.py`: Pomocné funkce
 - `data/`: Adresář pro výstupní JSON soubory
 - `peaks/`: Moduly pro jednotlivé vrcholy
-  - `lysa_hora.py`: Modul pro Lysou horu
+  - `lysa_hora.py`: Modul pro Lysou horu (lysahora.cz, záložně stanice ČHMÚ O1LYSA01)
   - `pustevny.py`: Modul pro Pustevny
   - `velky_javornik.py`: Modul pro Velký Javorník
 - `.github/workflows/`: Konfigurační soubory pro GitHub Actions

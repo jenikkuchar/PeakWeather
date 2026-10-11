@@ -33,3 +33,8 @@ RADEJOV_PREVIEW_URL = "https://www.chmi.cz/w/b7rade01-radejov"
 ZLIN_WSI = "0-203-0-11775"
 ZLIN_GH_ID = "B1ZLIN01"
 ZLIN_PREVIEW_URL = "https://www.chmi.cz/w/b1zlin01-zlin"
+
+# CHMI Lysá hora (O1LYSA01) - záložní zdroj, když lysahora.cz nevrátí data
+LYSA_HORA_WSI = "0-20000-0-11787"
+LYSA_HORA_GH_ID = "O1LYSA01"
+LYSA_HORA_CHMI_PREVIEW_URL = "https://www.chmi.cz/w/o1lysa01-lysa-hora"

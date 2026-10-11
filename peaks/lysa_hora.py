@@ -13,7 +13,11 @@ if __package__ is None or __name__ == "__main__":
 
 from utils import extract_num, normalize_text, prague_now_str
 import config
-from .constants import LYSA_HORA_SOURCE_URL, LYSA_HORA_PREVIEW_URL
+from .constants import (
+    LYSA_HORA_SOURCE_URL, LYSA_HORA_PREVIEW_URL,
+    LYSA_HORA_WSI, LYSA_HORA_GH_ID, LYSA_HORA_CHMI_PREVIEW_URL,
+)
+from .chmi import get_chmi_data
 
 def get_lysa_hora_data():
     """Get data from Lysá hora"""
@@ -81,5 +85,11 @@ def get_lysa_hora_data():
         result["details"] = data_row[8].text.strip()
     except Exception:
         pass
+
+    # Hlavní zdroj nevrátil teplotu -> data ze stanice ČHMÚ na Lysé hoře
+    if result["temperature"] is None:
+        fallback = get_chmi_data(LYSA_HORA_WSI, LYSA_HORA_GH_ID, peak, code, LYSA_HORA_CHMI_PREVIEW_URL)
+        if fallback and fallback.get("temperature") is not None:
+            result.update(fallback)
 
     return result
