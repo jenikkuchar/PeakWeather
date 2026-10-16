@@ -104,7 +104,7 @@
   {
     "code": "cerna_hora",
     "peak": "Černá hora",
-    "time": "16.10.2026 20:50",
+    "time": "16.10.2026 20:55",
     "temperature": 8.2,
     "humidity": 60.0,
     "precipitation": null,
@@ -138,8 +138,8 @@
   {
     "code": "velky_lopenik",
     "peak": "Velký Lopeník",
-    "time": "16.10.2026 20:50",
-    "temperature": 8.0,
+    "time": "16.10.2026 20:54",
+    "temperature": 7.9,
     "humidity": 100.0,
     "precipitation": null,
     "wind": 0.0,
